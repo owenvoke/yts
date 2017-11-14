@@ -27,7 +27,44 @@ $ composer require pxgamer/yts
 
 ## Usage
 
+#### List Movies
 
+Returns a Collection instance containing Movie instances.
+
+```php
+Movies::list([
+    'quality'         => Movies::QUALITY_ALL, // A quality constant
+    'query_term'      => 0,                   // A query string, or 0 to ignore
+    'page'            => 1,                   // An integer page number
+    'minimum_rating'  => 0,                   // The minimum movie rating
+    'genre'           => '',                  // A string containing the genre
+    'sort_by'         => 'date-added',        // The sort-by order
+    'order_by'        => 'desc',              // The direction to order by
+    'with_rt_ratings' => false,               // Returns the list with Rotten Tomatoes ratings
+]);
+```
+
+#### Movie Details
+
+Returns a Movie instance.
+
+```php
+Movies::details([
+    'movie_id' => null,     // The ID of the movie to retrieve
+    'with_images' => false, // Return with image URLs
+    'with_cast' => false,   // Return with information about the cast
+]);
+```
+
+#### Movie Suggestions
+
+Returns a Collection instance containing 0 to 4 Movie instances.
+
+```php
+Movies::suggestions([
+    'movie_id' => null,     // The ID of the movie to retrieve suggestions for
+]);
+```
 
 ## Change log
 
