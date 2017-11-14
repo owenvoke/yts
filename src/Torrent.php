@@ -45,15 +45,146 @@ class Torrent
     protected $date_uploaded_unix;
 
     /**
-     * @param string $name
-     * @return string|int|null
+     * @return string
      */
-    public function __get($name)
+    public function getUrl(): string
     {
-        if (property_exists(Movie::class, $name)) {
-            return $name;
-        }
+        return $this->url;
+    }
 
-        return null;
+    /**
+     * @param string $url
+     */
+    public function setUrl(string $url): void
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHash(): string
+    {
+        return $this->hash;
+    }
+
+    /**
+     * @param string $hash
+     */
+    public function setHash(string $hash): void
+    {
+        $this->hash = $hash;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuality(): string
+    {
+        return $this->quality;
+    }
+
+    /**
+     * @param string $quality
+     */
+    public function setQuality(string $quality): void
+    {
+        $this->quality = $quality;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSeeds(): int
+    {
+        return $this->seeds;
+    }
+
+    /**
+     * @param int $seeds
+     */
+    public function setSeeds(int $seeds): void
+    {
+        $this->seeds = $seeds;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPeers(): int
+    {
+        return $this->peers;
+    }
+
+    /**
+     * @param int $peers
+     */
+    public function setPeers(int $peers): void
+    {
+        $this->peers = $peers;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSize(): string
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param string $size
+     */
+    public function setSize(string $size): void
+    {
+        $this->size = $size;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSizeBytes(): int
+    {
+        return $this->size_bytes;
+    }
+
+    /**
+     * @param int $size_bytes
+     */
+    public function setSizeBytes(int $size_bytes): void
+    {
+        $this->size_bytes = $size_bytes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDateUploaded(): string
+    {
+        return $this->date_uploaded;
+    }
+
+    /**
+     * @param string $date_uploaded
+     */
+    public function setDateUploaded(string $date_uploaded): void
+    {
+        $this->date_uploaded = $date_uploaded;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDateUploadedUnix(): int
+    {
+        return $this->date_uploaded_unix;
+    }
+
+    /**
+     * @param int $date_uploaded_unix
+     */
+    public function setDateUploadedUnix(int $date_uploaded_unix): void
+    {
+        $this->date_uploaded_unix = $date_uploaded_unix;
     }
 }
