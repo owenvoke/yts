@@ -18,6 +18,7 @@ class YTS
     private static $client;
 
     /**
+     * Retrieve the array response from the API endpoint.
      * @param string $endpoint
      * @return array|null
      * @throws \Exception
@@ -36,7 +37,6 @@ class YTS
 
     /**
      * Retrieve the current GuzzleHttp Client instance.
-     *
      * @return Client
      */
     public static function getClient()
