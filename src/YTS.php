@@ -20,13 +20,13 @@ class YTS
     /**
      * Retrieve the array response from the API endpoint.
      * @param string $endpoint
+     * @param array  $parameters
      * @return array|null
-     * @throws \Exception
      */
-    public static function getFromApi($endpoint)
+    public static function getFromApi($endpoint, $parameters = [])
     {
         $response = YTS::getClient()
-                       ->get($endpoint);
+                       ->get($endpoint, ['query' => $parameters]);
 
         return \GuzzleHttp\json_decode(
             $response->getBody()
@@ -39,7 +39,7 @@ class YTS
      * Retrieve the current GuzzleHttp Client instance.
      * @return Client
      */
-    public static function getClient()
+    private static function getClient()
     {
         if (!YTS::$client instanceof Client) {
             YTS::$client = new Client([
