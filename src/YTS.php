@@ -9,7 +9,13 @@ use GuzzleHttp\Client;
  */
 class YTS
 {
+    /**
+     * The current version of the API.
+     */
     const API_VERSION = 2;
+    /**
+     * The base uri of the API.
+     */
     const BASE_URI = 'https://yts.ag/api/v'.YTS::API_VERSION;
 
     /**
