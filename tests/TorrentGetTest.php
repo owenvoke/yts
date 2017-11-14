@@ -34,7 +34,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws \Exception
      */
-    public function testCanGetTitle()
+    public function testCanGetQuality()
     {
         $torrent = Movies::details([
             'movie_id' => 10,
