@@ -122,7 +122,11 @@ class Movie
     {
         foreach ($prefill as $item => $value) {
             if (property_exists(Movie::class, $item)) {
-                $this->$item = $value;
+                if ($item === 'torrents') {
+                    $this->torrents = Torrents::buildCollection($value);
+                } else {
+                    $this->$item = $value;
+                }
             }
         }
     }
