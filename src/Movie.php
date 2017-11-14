@@ -113,4 +113,17 @@ class Movie
      * @var int
      */
     protected $date_uploaded_unix;
+
+    /**
+     * @param string $name
+     * @return Collection|string|int|null
+     */
+    public function __get($name)
+    {
+        if (property_exists(Movie::class, $name)) {
+            return $name;
+        }
+
+        return null;
+    }
 }
