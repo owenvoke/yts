@@ -50,7 +50,7 @@ class Movie
      */
     protected $runtime;
     /**
-     * @var array
+     * @var Collection
      */
     protected $genres;
     /**
