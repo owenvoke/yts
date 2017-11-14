@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 class Movies
 {
     /**
-     * Retrieve a collection of Movie elements.
+     * Retrieve a collection of Movie instances.
      * @param array $options
      * @return Collection
      * @throws \Exception
@@ -32,6 +32,29 @@ class Movies
 
         if (isset($response['data']['movies'])) {
             return self::buildCollection($response['data']['movies']);
+        }
+
+        throw new Exceptions\NoDataFoundException();
+    }
+
+    /**
+     * Retrieve a Movie instance.
+     * @param array $options
+     * @return Movie
+     * @throws \Exception
+     */
+    public static function details(array $options = [])
+    {
+        $options = array_merge([
+            'movie_id' => null,
+            'with_images' => false,
+            'with_cast' => false,
+        ], $options);
+
+        $response = YTS::getFromApi('/movie_details.json', $options);
+
+        if (isset($response['data']['movie'])) {
+            return new Movie($response['data']['movie']);
         }
 
         throw new Exceptions\NoDataFoundException();
