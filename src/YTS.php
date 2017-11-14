@@ -16,7 +16,7 @@ class YTS
     /**
      * The base uri of the API.
      */
-    const BASE_URI = 'https://yts.ag/api/v'.YTS::API_VERSION;
+    const BASE_URI = 'https://yts.ag/api/v'.YTS::API_VERSION.'/';
 
     /**
      * @var Client
