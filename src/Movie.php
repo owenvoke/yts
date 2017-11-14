@@ -130,12 +130,15 @@ class Movie
     {
         foreach ($prefill as $item => $value) {
             if (property_exists(Movie::class, $item)) {
-                if ($item === 'torrents') {
-                    $this->torrents = Torrents::buildCollection($value);
-                } if ($item === 'genres') {
-                    $this->genres = collect($value);
-                } else {
-                    $this->$item = $value;
+                switch ($item) {
+                    case 'torrents':
+                        $this->torrents = Torrents::buildCollection($value);
+                        break;
+                    case 'genres':
+                        $this->genres = collect($value);
+                        break;
+                    default:
+                        $this->$item = $value;
                 }
             }
         }
@@ -320,7 +323,7 @@ class Movie
     /**
      * @return int
      */
-    public function getDownloadCount() : int
+    public function getDownloadCount(): int
     {
         return $this->download_count;
     }
@@ -336,7 +339,7 @@ class Movie
     /**
      * @return int
      */
-    public function getLikeCount() : int
+    public function getLikeCount(): int
     {
         return $this->like_count;
     }
