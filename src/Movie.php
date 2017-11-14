@@ -54,6 +54,14 @@ class Movie
      */
     protected $genres;
     /**
+     * @var int
+     */
+    protected $download_count;
+    /**
+     * @var int
+     */
+    protected $like_count;
+    /**
      * @var string
      */
     protected $summary;
@@ -305,6 +313,38 @@ class Movie
     public function setGenres(Collection $genres): void
     {
         $this->genres = $genres;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDownloadCount() : int
+    {
+        return $this->download_count;
+    }
+
+    /**
+     * @param int $download_count
+     */
+    public function setDownloadCount($download_count): void
+    {
+        $this->download_count = $download_count;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLikeCount() : int
+    {
+        return $this->like_count;
+    }
+
+    /**
+     * @param int $like_count
+     */
+    public function setLikeCount($like_count): void
+    {
+        $this->like_count = $like_count;
     }
 
     /**
