@@ -50,9 +50,9 @@ Returns a Movie instance.
 
 ```php
 Movies::details([
-    'movie_id' => null,     // The ID of the movie to retrieve
+    'movie_id'    => null,  // The ID of the movie to retrieve
     'with_images' => false, // Return with image URLs
-    'with_cast' => false,   // Return with information about the cast
+    'with_cast'   => false, // Return with information about the cast
 ]);
 ```
 
@@ -62,7 +62,7 @@ Returns a Collection instance containing 0 to 4 Movie instances.
 
 ```php
 Movies::suggestions([
-    'movie_id' => null,     // The ID of the movie to retrieve suggestions for
+    'movie_id' => null, // The ID of the movie to retrieve suggestions for
 ]);
 ```
 
