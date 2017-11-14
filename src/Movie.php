@@ -115,6 +115,19 @@ class Movie
     protected $date_uploaded_unix;
 
     /**
+     * Movie constructor.
+     * @param array $prefill
+     */
+    public function __construct(array $prefill = [])
+    {
+        foreach ($prefill as $item => $value) {
+            if (property_exists(Movie::class, $item)) {
+                $this->$item = $value;
+            }
+        }
+    }
+
+    /**
      * @return int
      */
     public function getId(): int

@@ -45,6 +45,19 @@ class Torrent
     protected $date_uploaded_unix;
 
     /**
+     * Torrent constructor.
+     * @param array $prefill
+     */
+    public function __construct(array $prefill = [])
+    {
+        foreach ($prefill as $item => $value) {
+            if (property_exists(Torrent::class, $item)) {
+                $this->$item = $value;
+            }
+        }
+    }
+
+    /**
      * @return string
      */
     public function getUrl(): string
