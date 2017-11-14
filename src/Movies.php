@@ -45,7 +45,7 @@ class Movies
             'with_rt_ratings' => false,
         ], $options);
 
-        $response = YTS::getFromApi('/list_movies.json', $options);
+        $response = YTS::getFromApi('list_movies.json', $options);
 
         if (isset($response['data']['movies'])) {
             return Movies::buildCollection($response['data']['movies']);
@@ -68,7 +68,7 @@ class Movies
             'with_cast'   => false,
         ], $options);
 
-        $response = YTS::getFromApi('/movie_details.json', $options);
+        $response = YTS::getFromApi('movie_details.json', $options);
 
         if (isset($response['data']['movie'])) {
             return new Movie($response['data']['movie']);
@@ -89,7 +89,7 @@ class Movies
             'movie_id' => null,
         ], $options);
 
-        $response = YTS::getFromApi('/movie_suggestions.json', $options);
+        $response = YTS::getFromApi('movie_suggestions.json', $options);
 
         if (isset($response['data']['movies'])) {
             return Movies::buildCollection($response['data']['movies']);
