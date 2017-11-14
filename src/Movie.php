@@ -132,6 +132,8 @@ class Movie
             if (property_exists(Movie::class, $item)) {
                 if ($item === 'torrents') {
                     $this->torrents = Torrents::buildCollection($value);
+                } if ($item === 'genres') {
+                    $this->genres = collect($value);
                 } else {
                     $this->$item = $value;
                 }
