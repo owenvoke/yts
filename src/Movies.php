@@ -47,11 +47,7 @@ class Movies
 
         $response = YTS::getFromApi('list_movies.json', $options);
 
-        if (isset($response['data']['movies'])) {
-            return Movies::buildCollection($response['data']['movies']);
-        }
-
-        throw new Exceptions\NoDataFoundException();
+        return Movies::buildCollection($response['data']['movies']);
     }
 
     /**
@@ -70,11 +66,7 @@ class Movies
 
         $response = YTS::getFromApi('movie_details.json', $options);
 
-        if (isset($response['data']['movie'])) {
-            return new Movie($response['data']['movie']);
-        }
-
-        throw new Exceptions\NoDataFoundException();
+        return new Movie($response['data']['movie']);
     }
 
     /**
