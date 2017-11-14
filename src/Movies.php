@@ -10,6 +10,23 @@ use Illuminate\Support\Collection;
 class Movies
 {
     /**
+     * Constant for all qualities.
+     */
+    const QUALITY_ALL = 'All';
+    /**
+     * Constant for 720p quality.
+     */
+    const QUALITY_720 = '720p';
+    /**
+     * Constant for 1080p quality.
+     */
+    const QUALITY_1080 = '1080p';
+    /**
+     * Constant for 3D quality.
+     */
+    const QUALITY_3D = '3D';
+
+    /**
      * Retrieve a collection of Movie instances.
      * @param array $options
      * @return Collection
@@ -18,20 +35,20 @@ class Movies
     public static function list(array $options = [])
     {
         $options = array_merge([
-            'quality' => 'All',
-            'query_term' => 0,
-            'page' => 1,
-            'minimum_rating' => 0,
-            'genre' => '',
-            'sort_by' => 'date-added',
-            'order_by' => 'desc',
+            'quality'         => Movies::QUALITY_ALL,
+            'query_term'      => 0,
+            'page'            => 1,
+            'minimum_rating'  => 0,
+            'genre'           => '',
+            'sort_by'         => 'date-added',
+            'order_by'        => 'desc',
             'with_rt_ratings' => false,
         ], $options);
 
         $response = YTS::getFromApi('/list_movies.json', $options);
 
         if (isset($response['data']['movies'])) {
-            return self::buildCollection($response['data']['movies']);
+            return Movies::buildCollection($response['data']['movies']);
         }
 
         throw new Exceptions\NoDataFoundException();
@@ -46,15 +63,36 @@ class Movies
     public static function details(array $options = [])
     {
         $options = array_merge([
-            'movie_id' => null,
+            'movie_id'    => null,
             'with_images' => false,
-            'with_cast' => false,
+            'with_cast'   => false,
         ], $options);
 
         $response = YTS::getFromApi('/movie_details.json', $options);
 
         if (isset($response['data']['movie'])) {
             return new Movie($response['data']['movie']);
+        }
+
+        throw new Exceptions\NoDataFoundException();
+    }
+
+    /**
+     * Retrieve a Collection of suggested Movie instances.
+     * @param array $options
+     * @return Collection
+     * @throws \Exception
+     */
+    public static function suggestions(array $options = [])
+    {
+        $options = array_merge([
+            'movie_id' => null,
+        ], $options);
+
+        $response = YTS::getFromApi('/movie_suggestions.json', $options);
+
+        if (isset($response['data']['movies'])) {
+            return Movies::buildCollection($response['data']['movies']);
         }
 
         throw new Exceptions\NoDataFoundException();
