@@ -10,7 +10,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetUrl()
+    public function testCanGetUrl(): void
     {
         $movie = new Torrent();
         $movie->setUrl('');
@@ -20,7 +20,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetHash()
+    public function testCanGetHash(): void
     {
         $movie = new Torrent();
         $movie->setHash('');
@@ -30,7 +30,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetQuality()
+    public function testCanGetQuality(): void
     {
         $movie = new Torrent();
         $movie->setQuality('');
@@ -40,7 +40,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSeeds()
+    public function testCanGetSeeds(): void
     {
         $movie = new Torrent();
         $movie->setSeeds(1);
@@ -50,7 +50,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetPeers()
+    public function testCanGetPeers(): void
     {
         $movie = new Torrent();
         $movie->setPeers(1);
@@ -60,7 +60,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSize()
+    public function testCanGetSize(): void
     {
         $movie = new Torrent();
         $movie->setSize('');
@@ -70,7 +70,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSizeBytes()
+    public function testCanGetSizeBytes(): void
     {
         $movie = new Torrent();
         $movie->setSizeBytes(1);
@@ -80,7 +80,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploaded()
+    public function testCanGetDateUploaded(): void
     {
         $movie = new Torrent();
         $movie->setDateUploaded('');
@@ -90,7 +90,7 @@ class TorrentSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploadedUnix()
+    public function testCanGetDateUploadedUnix(): void
     {
         $time = time();
         $movie = new Torrent();

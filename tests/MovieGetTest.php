@@ -10,7 +10,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetId()
+    public function testCanGetId(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -32,7 +32,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetImdbCode()
+    public function testCanGetImdbCode(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -43,7 +43,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTitle()
+    public function testCanGetTitle(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -54,7 +54,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTitleEnglish()
+    public function testCanGetTitleEnglish(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -65,7 +65,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTitleLong()
+    public function testCanGetTitleLong(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -76,7 +76,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSlug()
+    public function testCanGetSlug(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -87,7 +87,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetYear()
+    public function testCanGetYear(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -98,7 +98,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetRating()
+    public function testCanGetRating(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -109,7 +109,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetRuntime()
+    public function testCanGetRuntime(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -120,7 +120,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetGenres()
+    public function testCanGetGenres(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -132,7 +132,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDownloadCount()
+    public function testCanGetDownloadCount(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -143,7 +143,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetLikeCount()
+    public function testCanGetLikeCount(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -154,7 +154,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSummary()
+    public function testCanGetSummary(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
@@ -165,7 +165,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDescriptionFull()
+    public function testCanGetDescriptionFull(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
@@ -176,7 +176,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSynopsis()
+    public function testCanGetSynopsis(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
@@ -187,7 +187,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetYtTrailerCode()
+    public function testCanGetYtTrailerCode(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -198,7 +198,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetLanguage()
+    public function testCanGetLanguage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -209,7 +209,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetMpaRating()
+    public function testCanGetMpaRating(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -220,7 +220,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetBackgroundImage()
+    public function testCanGetBackgroundImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -231,7 +231,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetBackgroundImageOriginal()
+    public function testCanGetBackgroundImageOriginal(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -242,7 +242,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSmallCoverImage()
+    public function testCanGetSmallCoverImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -253,7 +253,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetMediumCoverImage()
+    public function testCanGetMediumCoverImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -264,7 +264,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetLargeCoverImage()
+    public function testCanGetLargeCoverImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -275,7 +275,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetState()
+    public function testCanGetState(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
@@ -286,7 +286,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTorrents()
+    public function testCanGetTorrents(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -298,7 +298,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploaded()
+    public function testCanGetDateUploaded(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -309,7 +309,7 @@ class MovieGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploadedUnix()
+    public function testCanGetDateUploadedUnix(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,

@@ -10,7 +10,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetUrl()
+    public function testCanGetUrl(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -21,7 +21,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetHash()
+    public function testCanGetHash(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -32,7 +32,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetQuality()
+    public function testCanGetQuality(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -43,7 +43,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSeeds()
+    public function testCanGetSeeds(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -54,7 +54,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetPeers()
+    public function testCanGetPeers(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -65,7 +65,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSize()
+    public function testCanGetSize(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -76,7 +76,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSizeBytes()
+    public function testCanGetSizeBytes(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -87,7 +87,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploaded()
+    public function testCanGetDateUploaded(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
@@ -98,7 +98,7 @@ class TorrentGetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploadedUnix()
+    public function testCanGetDateUploadedUnix(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,

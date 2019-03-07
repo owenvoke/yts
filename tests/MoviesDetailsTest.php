@@ -11,7 +11,7 @@ class MoviesDetailsTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanRetrieveMovie()
+    public function testCanRetrieveMovie(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -22,7 +22,7 @@ class MoviesDetailsTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanRetrieveMovieWithImages()
+    public function testCanRetrieveMovieWithImages(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -34,7 +34,7 @@ class MoviesDetailsTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanRetrieveMovieWithCast()
+    public function testCanRetrieveMovieWithCast(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
@@ -46,7 +46,7 @@ class MoviesDetailsTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testThrowsErrorOnInvalidData()
+    public function testThrowsErrorOnInvalidData(): void
     {
         $this->expectException(InvalidArgumentException::class);
         Movies::details();

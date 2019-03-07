@@ -10,7 +10,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetId()
+    public function testCanGetId(): void
     {
         $movie = new Movie();
         $movie->setId(1);
@@ -20,7 +20,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetUrl()
+    public function testCanGetUrl(): void
     {
         $movie = new Movie();
         $movie->setUrl('');
@@ -30,7 +30,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetImdbCode()
+    public function testCanGetImdbCode(): void
     {
         $movie = new Movie();
         $movie->setImdbCode('');
@@ -40,7 +40,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTitle()
+    public function testCanGetTitle(): void
     {
         $movie = new Movie();
         $movie->setTitle('');
@@ -50,7 +50,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTitleEnglish()
+    public function testCanGetTitleEnglish(): void
     {
         $movie = new Movie();
         $movie->setTitleEnglish('');
@@ -60,7 +60,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTitleLong()
+    public function testCanGetTitleLong(): void
     {
         $movie = new Movie();
         $movie->setTitleLong('');
@@ -70,7 +70,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSlug()
+    public function testCanGetSlug(): void
     {
         $movie = new Movie();
         $movie->setSlug('');
@@ -80,7 +80,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetYear()
+    public function testCanGetYear(): void
     {
         $movie = new Movie();
         $movie->setYear(1998);
@@ -90,7 +90,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetRating()
+    public function testCanGetRating(): void
     {
         $movie = new Movie();
         $movie->setRating(1.0);
@@ -100,7 +100,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetRuntime()
+    public function testCanGetRuntime(): void
     {
         $movie = new Movie();
         $movie->setRuntime(666);
@@ -110,7 +110,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetGenres()
+    public function testCanGetGenres(): void
     {
         $collection = collect([
             'Action'
@@ -123,7 +123,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDownloadCount()
+    public function testCanGetDownloadCount(): void
     {
         $movie = new Movie();
         $movie->setDownloadCount(666);
@@ -133,7 +133,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetLikeCount()
+    public function testCanGetLikeCount(): void
     {
         $movie = new Movie();
         $movie->setLikeCount(666);
@@ -143,7 +143,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSummary()
+    public function testCanGetSummary(): void
     {
         $movie = new Movie();
         $movie->setSummary('');
@@ -153,7 +153,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDescriptionFull()
+    public function testCanGetDescriptionFull(): void
     {
         $movie = new Movie();
         $movie->setDescriptionFull('');
@@ -163,7 +163,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSynopsis()
+    public function testCanGetSynopsis(): void
     {
         $movie = new Movie();
         $movie->setSynopsis('');
@@ -173,7 +173,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetYtTrailerCode()
+    public function testCanGetYtTrailerCode(): void
     {
         $movie = new Movie();
         $movie->setYtTrailerCode('');
@@ -183,7 +183,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetLanguage()
+    public function testCanGetLanguage(): void
     {
         $movie = new Movie();
         $movie->setLanguage('');
@@ -193,7 +193,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetMpaRating()
+    public function testCanGetMpaRating(): void
     {
         $movie = new Movie();
         $movie->setMpaRating('');
@@ -203,7 +203,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetBackgroundImage()
+    public function testCanGetBackgroundImage(): void
     {
         $movie = new Movie();
         $movie->setBackgroundImage('');
@@ -213,7 +213,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetBackgroundImageOriginal()
+    public function testCanGetBackgroundImageOriginal(): void
     {
         $movie = new Movie();
         $movie->setBackgroundImageOriginal('');
@@ -223,7 +223,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetSmallCoverImage()
+    public function testCanGetSmallCoverImage(): void
     {
         $movie = new Movie();
         $movie->setSmallCoverImage('');
@@ -233,7 +233,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetMediumCoverImage()
+    public function testCanGetMediumCoverImage(): void
     {
         $movie = new Movie();
         $movie->setMediumCoverImage('');
@@ -243,7 +243,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetLargeCoverImage()
+    public function testCanGetLargeCoverImage(): void
     {
         $movie = new Movie();
         $movie->setLargeCoverImage('');
@@ -253,7 +253,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetState()
+    public function testCanGetState(): void
     {
         $movie = new Movie();
         $movie->setState('');
@@ -263,7 +263,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetTorrents()
+    public function testCanGetTorrents(): void
     {
         $collection = collect([
            new Torrent()
@@ -276,7 +276,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploaded()
+    public function testCanGetDateUploaded(): void
     {
         $movie = new Movie();
         $movie->setDateUploaded('');
@@ -286,7 +286,7 @@ class MovieSetTest extends TestCase
     /**
      * @throws Exception
      */
-    public function testCanGetDateUploadedUnix()
+    public function testCanGetDateUploadedUnix(): void
     {
         $time = time();
         $movie = new Movie();
