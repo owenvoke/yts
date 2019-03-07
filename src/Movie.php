@@ -66,7 +66,7 @@ class Movie
     public function __construct(array $prefill = [])
     {
         foreach ($prefill as $item => $value) {
-            if (property_exists(Movie::class, $item)) {
+            if (property_exists(self::class, $item)) {
                 switch ($item) {
                     case 'torrents':
                         $this->torrents = Torrents::buildCollection($value);

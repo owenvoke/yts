@@ -7,13 +7,13 @@ use Illuminate\Support\Collection;
 class Movies
 {
     /** Constant for all qualities. */
-    const QUALITY_ALL = 'All';
+    public const QUALITY_ALL = 'All';
     /** Constant for 720p quality. */
-    const QUALITY_720 = '720p';
+    public const QUALITY_720 = '720p';
     /** Constant for 1080p quality. */
-    const QUALITY_1080 = '1080p';
+    public const QUALITY_1080 = '1080p';
     /** Constant for 3D quality. */
-    const QUALITY_3D = '3D';
+    public const QUALITY_3D = '3D';
 
     /**
      * Retrieve a collection of Movie instances.
