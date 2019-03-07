@@ -4,9 +4,6 @@ namespace pxgamer\YTS;
 
 use Illuminate\Support\Collection;
 
-/**
- * Class Torrents
- */
 class Torrents
 {
     /**

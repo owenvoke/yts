@@ -4,26 +4,15 @@ namespace pxgamer\YTS;
 
 use Illuminate\Support\Collection;
 
-/**
- * Class Movies
- */
 class Movies
 {
-    /**
-     * Constant for all qualities.
-     */
+    /** Constant for all qualities. */
     const QUALITY_ALL = 'All';
-    /**
-     * Constant for 720p quality.
-     */
+    /** Constant for 720p quality. */
     const QUALITY_720 = '720p';
-    /**
-     * Constant for 1080p quality.
-     */
+    /** Constant for 1080p quality. */
     const QUALITY_1080 = '1080p';
-    /**
-     * Constant for 3D quality.
-     */
+    /** Constant for 3D quality. */
     const QUALITY_3D = '3D';
 
     /**

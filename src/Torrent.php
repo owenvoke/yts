@@ -2,9 +2,6 @@
 
 namespace pxgamer\YTS;
 
-/**
- * Class Torrent
- */
 class Torrent
 {
     /**

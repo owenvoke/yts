@@ -4,23 +4,14 @@ namespace pxgamer\YTS;
 
 use GuzzleHttp\Client;
 
-/**
- * Class YTS
- */
 class YTS
 {
-    /**
-     * The current version of the API.
-     */
+    /** The current version of the API. */
     const API_VERSION = 2;
-    /**
-     * The base uri of the API.
-     */
+    /** The base uri of the API. */
     const BASE_URI = 'https://yts.am/api/v'.YTS::API_VERSION.'/';
 
-    /**
-     * @var Client
-     */
+    /** @var Client */
     private static $client;
 
     /**
