@@ -17,18 +17,18 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getId());
+        $this->assertIsInt($movie->getId());
     }
 
     /**
      * @throws \Exception
      */
-    public function testCanGetUrl()
+    public function testCanGetUrl(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getUrl());
+        $this->assertIsString($movie->getUrl());
     }
 
     /**
@@ -39,7 +39,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getImdbCode());
+        $this->assertIsString($movie->getImdbCode());
     }
 
     /**
@@ -50,7 +50,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getTitle());
+        $this->assertIsString($movie->getTitle());
     }
 
     /**
@@ -61,7 +61,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getTitleEnglish());
+        $this->assertIsString($movie->getTitleEnglish());
     }
 
     /**
@@ -72,7 +72,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getTitleLong());
+        $this->assertIsString($movie->getTitleLong());
     }
 
     /**
@@ -83,7 +83,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getSlug());
+        $this->assertIsString($movie->getSlug());
     }
 
     /**
@@ -94,7 +94,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getYear());
+        $this->assertIsInt($movie->getYear());
     }
 
     /**
@@ -105,7 +105,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('float', $movie->getRating());
+        $this->assertIsFloat($movie->getRating());
     }
 
     /**
@@ -116,7 +116,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getRuntime());
+        $this->assertIsInt($movie->getRuntime());
     }
 
     /**
@@ -128,7 +128,7 @@ class MovieGetTest extends TestCase
             'movie_id' => 10,
         ]);
         $this->assertTrue($movie->getGenres()->isNotEmpty());
-        $this->assertInternalType('string', $movie->getGenres()->first());
+        $this->assertIsString($movie->getGenres()->first());
     }
 
     /**
@@ -139,7 +139,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getDownloadCount());
+        $this->assertIsInt($movie->getDownloadCount());
     }
 
     /**
@@ -150,7 +150,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getLikeCount());
+        $this->assertIsInt($movie->getLikeCount());
     }
 
     /**
@@ -161,7 +161,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getSummary());
+        $this->assertIsString($movie->getSummary());
     }
 
     /**
@@ -172,7 +172,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getDescriptionFull());
+        $this->assertIsString($movie->getDescriptionFull());
     }
 
     /**
@@ -183,7 +183,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getSynopsis());
+        $this->assertIsString($movie->getSynopsis());
     }
 
     /**
@@ -194,7 +194,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getYtTrailerCode());
+        $this->assertIsString($movie->getYtTrailerCode());
     }
 
     /**
@@ -205,7 +205,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getLanguage());
+        $this->assertIsString($movie->getLanguage());
     }
 
     /**
@@ -216,7 +216,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getMpaRating());
+        $this->assertIsString($movie->getMpaRating());
     }
 
     /**
@@ -227,7 +227,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getBackgroundImage());
+        $this->assertIsString($movie->getBackgroundImage());
     }
 
     /**
@@ -238,7 +238,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getBackgroundImageOriginal());
+        $this->assertIsString($movie->getBackgroundImageOriginal());
     }
 
     /**
@@ -249,7 +249,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getSmallCoverImage());
+        $this->assertIsString($movie->getSmallCoverImage());
     }
 
     /**
@@ -260,7 +260,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getMediumCoverImage());
+        $this->assertIsString($movie->getMediumCoverImage());
     }
 
     /**
@@ -271,7 +271,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getLargeCoverImage());
+        $this->assertIsString($movie->getLargeCoverImage());
     }
 
     /**
@@ -282,7 +282,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getState());
+        $this->assertIsString($movie->getState());
     }
 
     /**
@@ -294,7 +294,7 @@ class MovieGetTest extends TestCase
             'movie_id' => 10,
         ]);
         $this->assertTrue($movie->getTorrents()->isNotEmpty());
-        $this->assertInternalType('string', $movie->getTorrents()->first()->getUrl());
+        $this->assertIsString($movie->getTorrents()->first()->getUrl());
     }
 
     /**
@@ -305,7 +305,7 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getDateUploaded());
+        $this->assertIsString($movie->getDateUploaded());
     }
 
     /**
@@ -316,6 +316,6 @@ class MovieGetTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getDateUploadedUnix());
+        $this->assertIsInt($movie->getDateUploadedUnix());
     }
 }

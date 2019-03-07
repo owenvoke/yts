@@ -17,7 +17,7 @@ class MoviesDetailsTest extends TestCase
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertTrue($movie instanceof Movie);
+        $this->assertInstanceOf(Movie::class, $movie);
     }
 
     /**
@@ -26,10 +26,10 @@ class MoviesDetailsTest extends TestCase
     public function testCanRetrieveMovieWithImages()
     {
         $movie = Movies::details([
-            'movie_id'    => 10,
+            'movie_id' => 10,
             'with_images' => true,
         ]);
-        $this->assertTrue($movie instanceof Movie);
+        $this->assertInstanceOf(Movie::class, $movie);
     }
 
     /**
@@ -38,10 +38,10 @@ class MoviesDetailsTest extends TestCase
     public function testCanRetrieveMovieWithCast()
     {
         $movie = Movies::details([
-            'movie_id'  => 10,
+            'movie_id' => 10,
             'with_cast' => true,
         ]);
-        $this->assertTrue($movie instanceof Movie);
+        $this->assertInstanceOf(Movie::class, $movie);
     }
 
     /**
