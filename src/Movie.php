@@ -63,8 +63,10 @@ class Movie
     /** @var int */
     protected $date_uploaded_unix;
 
-    public function __construct(array $prefill = [])
+    public function __construct(array $prefill = null)
     {
+        $prefill = $prefill ?? [];
+
         foreach ($prefill as $item => $value) {
             if (property_exists(self::class, $item)) {
                 switch ($item) {

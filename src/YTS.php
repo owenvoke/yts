@@ -15,8 +15,10 @@ class YTS
     private static $client;
 
     /* Retrieve the array response from the API endpoint. */
-    public static function getFromApi(string $endpoint, array $parameters = []): ?array
+    public static function getFromApi(string $endpoint, array $parameters = null): ?array
     {
+        $parameters = $parameters ?? [];
+
         $response = self::getClient()
             ->get($endpoint, ['query' => $parameters]);
 

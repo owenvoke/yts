@@ -22,8 +22,10 @@ class Movies
      * @return Collection
      * @throws Exception
      */
-    public static function list(array $options = []): Collection
+    public static function list(array $options = null): Collection
     {
+        $options = $options ?? [];
+
         $options = array_merge([
             'quality' => self::QUALITY_ALL,
             'query_term' => 0,
@@ -46,8 +48,10 @@ class Movies
      * @return Movie
      * @throws Exception
      */
-    public static function details(array $options = []): Movie
+    public static function details(array $options = null): Movie
     {
+        $options = $options ?? [];
+
         $options = array_merge([
             'movie_id' => null,
             'with_images' => false,
@@ -65,8 +69,10 @@ class Movies
      * @return Collection
      * @throws Exception
      */
-    public static function suggestions(array $options = []): Collection
+    public static function suggestions(array $options = null): Collection
     {
+        $options = $options ?? [];
+
         $options = array_merge([
             'movie_id' => null,
         ], $options);
