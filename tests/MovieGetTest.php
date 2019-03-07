@@ -4,9 +4,6 @@ namespace pxgamer\YTS;
 
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class MovieGetTest
- */
 class MovieGetTest extends TestCase
 {
     /**

@@ -5,9 +5,6 @@ namespace pxgamer\YTS;
 use PHPUnit\Framework\TestCase;
 use pxgamer\YTS\Exceptions\NoDataFoundException;
 
-/**
- * Class MoviesSuggestionsTest
- */
 class MoviesSuggestionsTest extends TestCase
 {
     /**
