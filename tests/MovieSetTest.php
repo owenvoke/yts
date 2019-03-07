@@ -2,12 +2,13 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class MovieSetTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetId()
     {
@@ -17,7 +18,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetUrl()
     {
@@ -27,7 +28,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetImdbCode()
     {
@@ -37,7 +38,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetTitle()
     {
@@ -47,7 +48,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetTitleEnglish()
     {
@@ -57,7 +58,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetTitleLong()
     {
@@ -67,7 +68,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSlug()
     {
@@ -77,7 +78,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetYear()
     {
@@ -87,7 +88,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetRating()
     {
@@ -97,7 +98,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetRuntime()
     {
@@ -107,7 +108,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetGenres()
     {
@@ -120,7 +121,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetDownloadCount()
     {
@@ -130,7 +131,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetLikeCount()
     {
@@ -140,7 +141,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSummary()
     {
@@ -150,7 +151,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetDescriptionFull()
     {
@@ -160,7 +161,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSynopsis()
     {
@@ -170,7 +171,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetYtTrailerCode()
     {
@@ -180,7 +181,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetLanguage()
     {
@@ -190,7 +191,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetMpaRating()
     {
@@ -200,7 +201,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetBackgroundImage()
     {
@@ -210,7 +211,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetBackgroundImageOriginal()
     {
@@ -220,7 +221,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSmallCoverImage()
     {
@@ -230,7 +231,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetMediumCoverImage()
     {
@@ -240,7 +241,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetLargeCoverImage()
     {
@@ -250,7 +251,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetState()
     {
@@ -260,7 +261,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetTorrents()
     {
@@ -273,7 +274,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetDateUploaded()
     {
@@ -283,7 +284,7 @@ class MovieSetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetDateUploadedUnix()
     {

@@ -2,13 +2,14 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use pxgamer\YTS\Exceptions\NoDataFoundException;
 
 class MoviesSuggestionsTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovie()
     {
@@ -20,7 +21,7 @@ class MoviesSuggestionsTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovieWithImages()
     {
@@ -32,7 +33,7 @@ class MoviesSuggestionsTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovieWithCast()
     {
@@ -44,7 +45,7 @@ class MoviesSuggestionsTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testThrowsErrorOnInvalidData()
     {

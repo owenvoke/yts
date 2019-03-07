@@ -2,12 +2,13 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class TorrentGetTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetUrl()
     {
@@ -18,7 +19,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetHash()
     {
@@ -29,7 +30,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetQuality()
     {
@@ -40,7 +41,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSeeds()
     {
@@ -51,7 +52,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetPeers()
     {
@@ -62,7 +63,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSize()
     {
@@ -73,7 +74,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetSizeBytes()
     {
@@ -84,7 +85,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetDateUploaded()
     {
@@ -95,7 +96,7 @@ class TorrentGetTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanGetDateUploadedUnix()
     {

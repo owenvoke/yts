@@ -2,12 +2,14 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 class MoviesDetailsTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovie()
     {
@@ -18,7 +20,7 @@ class MoviesDetailsTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovieWithImages()
     {
@@ -30,7 +32,7 @@ class MoviesDetailsTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovieWithCast()
     {
@@ -42,11 +44,11 @@ class MoviesDetailsTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testThrowsErrorOnInvalidData()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         Movies::details();
     }
 }

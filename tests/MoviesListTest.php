@@ -2,12 +2,13 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class MoviesListTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMovies()
     {
@@ -17,7 +18,7 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMoviesByQuality()
     {
@@ -29,7 +30,7 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMoviesByQuery()
     {
@@ -41,7 +42,7 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMoviesByPage()
     {
@@ -53,7 +54,7 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMoviesByMinimumRating()
     {
@@ -65,7 +66,7 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function testCanRetrieveMoviesByGenre()
     {

@@ -2,6 +2,7 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use Illuminate\Support\Collection;
 
 class Movies
@@ -19,7 +20,7 @@ class Movies
      * Retrieve a collection of Movie instances.
      * @param array $options
      * @return Collection
-     * @throws \Exception
+     * @throws Exception
      */
     public static function list(array $options = []): Collection
     {
@@ -43,7 +44,7 @@ class Movies
      * Retrieve a Movie instance.
      * @param array $options
      * @return Movie
-     * @throws \Exception
+     * @throws Exception
      */
     public static function details(array $options = []): Movie
     {
@@ -62,7 +63,7 @@ class Movies
      * Retrieve a Collection of suggested Movie instances.
      * @param array $options
      * @return Collection
-     * @throws \Exception
+     * @throws Exception
      */
     public static function suggestions(array $options = []): Collection
     {
