@@ -21,22 +21,22 @@ class Movies
      * @return Collection
      * @throws \Exception
      */
-    public static function list(array $options = [])
+    public static function list(array $options = []): Collection
     {
         $options = array_merge([
-            'quality'         => Movies::QUALITY_ALL,
-            'query_term'      => 0,
-            'page'            => 1,
-            'minimum_rating'  => 0,
-            'genre'           => '',
-            'sort_by'         => 'date-added',
-            'order_by'        => 'desc',
+            'quality' => self::QUALITY_ALL,
+            'query_term' => 0,
+            'page' => 1,
+            'minimum_rating' => 0,
+            'genre' => '',
+            'sort_by' => 'date-added',
+            'order_by' => 'desc',
             'with_rt_ratings' => false,
         ], $options);
 
         $response = YTS::getFromApi('list_movies.json', $options);
 
-        return Movies::buildCollection($response['data']['movies']);
+        return self::buildCollection($response['data']['movies']);
     }
 
     /**
@@ -45,12 +45,12 @@ class Movies
      * @return Movie
      * @throws \Exception
      */
-    public static function details(array $options = [])
+    public static function details(array $options = []): Movie
     {
         $options = array_merge([
-            'movie_id'    => null,
+            'movie_id' => null,
             'with_images' => false,
-            'with_cast'   => false,
+            'with_cast' => false,
         ], $options);
 
         $response = YTS::getFromApi('movie_details.json', $options);
@@ -64,7 +64,7 @@ class Movies
      * @return Collection
      * @throws \Exception
      */
-    public static function suggestions(array $options = [])
+    public static function suggestions(array $options = []): Collection
     {
         $options = array_merge([
             'movie_id' => null,
@@ -73,7 +73,7 @@ class Movies
         $response = YTS::getFromApi('movie_suggestions.json', $options);
 
         if (isset($response['data']['movies'])) {
-            return Movies::buildCollection($response['data']['movies']);
+            return self::buildCollection($response['data']['movies']);
         }
 
         throw new Exceptions\NoDataFoundException();
@@ -84,7 +84,7 @@ class Movies
      * @param array $data
      * @return Collection
      */
-    public static function buildCollection(array $data)
+    public static function buildCollection(array $data): Collection
     {
         $collection = new Collection();
 

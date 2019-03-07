@@ -6,12 +6,8 @@ use Illuminate\Support\Collection;
 
 class Torrents
 {
-    /**
-     * Build a Collection of Torrent classes from an array.
-     * @param array $data
-     * @return Collection
-     */
-    public static function buildCollection(array $data)
+    /* Build a Collection of Torrent classes from an array. */
+    public static function buildCollection(array $data): Collection
     {
         $collection = new Collection();
 
