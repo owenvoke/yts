@@ -17,7 +17,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getUrl());
+        $this->assertIsString($torrent->getUrl());
     }
 
     /**
@@ -28,7 +28,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getHash());
+        $this->assertIsString($torrent->getHash());
     }
 
     /**
@@ -39,7 +39,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getQuality());
+        $this->assertIsString($torrent->getQuality());
     }
 
     /**
@@ -50,7 +50,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getSeeds());
+        $this->assertIsInt($torrent->getSeeds());
     }
 
     /**
@@ -61,7 +61,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getPeers());
+        $this->assertIsInt($torrent->getPeers());
     }
 
     /**
@@ -72,7 +72,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getSize());
+        $this->assertIsString($torrent->getSize());
     }
 
     /**
@@ -83,7 +83,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getSizeBytes());
+        $this->assertIsInt($torrent->getSizeBytes());
     }
 
     /**
@@ -94,7 +94,7 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getDateUploaded());
+        $this->assertIsString($torrent->getDateUploaded());
     }
 
     /**
@@ -105,6 +105,6 @@ class TorrentGetTest extends TestCase
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getDateUploadedUnix());
+        $this->assertIsInt($torrent->getDateUploadedUnix());
     }
 }
