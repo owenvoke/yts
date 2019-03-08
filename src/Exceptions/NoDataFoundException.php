@@ -2,13 +2,10 @@
 
 namespace pxgamer\YTS\Exceptions;
 
-/**
- * Class NoDataFoundException
- */
-class NoDataFoundException extends \Exception
+use Exception;
+
+class NoDataFoundException extends Exception
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $message = 'No data was found from the API.';
 }

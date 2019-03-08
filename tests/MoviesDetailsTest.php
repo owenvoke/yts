@@ -2,54 +2,53 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class MoviesDetailsTest
- */
 class MoviesDetailsTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMovie()
+    public function testCanRetrieveMovie(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertTrue($movie instanceof Movie);
+        $this->assertInstanceOf(Movie::class, $movie);
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMovieWithImages()
+    public function testCanRetrieveMovieWithImages(): void
     {
         $movie = Movies::details([
-            'movie_id'    => 10,
+            'movie_id' => 10,
             'with_images' => true,
         ]);
-        $this->assertTrue($movie instanceof Movie);
+        $this->assertInstanceOf(Movie::class, $movie);
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMovieWithCast()
+    public function testCanRetrieveMovieWithCast(): void
     {
         $movie = Movies::details([
-            'movie_id'  => 10,
+            'movie_id' => 10,
             'with_cast' => true,
         ]);
-        $this->assertTrue($movie instanceof Movie);
+        $this->assertInstanceOf(Movie::class, $movie);
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testThrowsErrorOnInvalidData()
+    public function testThrowsErrorOnInvalidData(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         Movies::details();
     }
 }

@@ -2,109 +2,107 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class TorrentGetTest
- */
 class TorrentGetTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetUrl()
+    public function testCanGetUrl(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getUrl());
+        $this->assertIsString($torrent->getUrl());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetHash()
+    public function testCanGetHash(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getHash());
+        $this->assertIsString($torrent->getHash());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetQuality()
+    public function testCanGetQuality(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getQuality());
+        $this->assertIsString($torrent->getQuality());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSeeds()
+    public function testCanGetSeeds(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getSeeds());
+        $this->assertIsInt($torrent->getSeeds());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetPeers()
+    public function testCanGetPeers(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getPeers());
+        $this->assertIsInt($torrent->getPeers());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSize()
+    public function testCanGetSize(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getSize());
+        $this->assertIsString($torrent->getSize());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSizeBytes()
+    public function testCanGetSizeBytes(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getSizeBytes());
+        $this->assertIsInt($torrent->getSizeBytes());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetDateUploaded()
+    public function testCanGetDateUploaded(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('string', $torrent->getDateUploaded());
+        $this->assertIsString($torrent->getDateUploaded());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetDateUploadedUnix()
+    public function testCanGetDateUploadedUnix(): void
     {
         $torrent = Movies::details([
             'movie_id' => 10,
         ])->getTorrents()->first();
-        $this->assertInternalType('int', $torrent->getDateUploadedUnix());
+        $this->assertIsInt($torrent->getDateUploadedUnix());
     }
 }

@@ -2,17 +2,15 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class MoviesListTest
- */
 class MoviesListTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMovies()
+    public function testCanRetrieveMovies(): void
     {
         $movies = Movies::list();
         $this->assertTrue($movies->isNotEmpty());
@@ -20,9 +18,9 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMoviesByQuality()
+    public function testCanRetrieveMoviesByQuality(): void
     {
         $movies = Movies::list([
             'quality' => Movies::QUALITY_720
@@ -32,9 +30,9 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMoviesByQuery()
+    public function testCanRetrieveMoviesByQuery(): void
     {
         $movies = Movies::list([
             'query_term' => 'Lord of the Rings',
@@ -44,9 +42,9 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMoviesByPage()
+    public function testCanRetrieveMoviesByPage(): void
     {
         $movies = Movies::list([
             'page' => 2,
@@ -56,9 +54,9 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMoviesByMinimumRating()
+    public function testCanRetrieveMoviesByMinimumRating(): void
     {
         $movies = Movies::list([
             'minimum_rating' => 5,
@@ -68,9 +66,9 @@ class MoviesListTest extends TestCase
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanRetrieveMoviesByGenre()
+    public function testCanRetrieveMoviesByGenre(): void
     {
         $movies = Movies::list([
             'genre' => 'Action',

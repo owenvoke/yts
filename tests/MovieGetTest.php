@@ -2,320 +2,318 @@
 
 namespace pxgamer\YTS;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
-/**
- * Class MovieGetTest
- */
 class MovieGetTest extends TestCase
 {
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetId()
+    public function testCanGetId(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getId());
+        $this->assertIsInt($movie->getId());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetUrl()
+    public function testCanGetUrl(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getUrl());
+        $this->assertIsString($movie->getUrl());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetImdbCode()
+    public function testCanGetImdbCode(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getImdbCode());
+        $this->assertIsString($movie->getImdbCode());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetTitle()
+    public function testCanGetTitle(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getTitle());
+        $this->assertIsString($movie->getTitle());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetTitleEnglish()
+    public function testCanGetTitleEnglish(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getTitleEnglish());
+        $this->assertIsString($movie->getTitleEnglish());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetTitleLong()
+    public function testCanGetTitleLong(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getTitleLong());
+        $this->assertIsString($movie->getTitleLong());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSlug()
+    public function testCanGetSlug(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getSlug());
+        $this->assertIsString($movie->getSlug());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetYear()
+    public function testCanGetYear(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getYear());
+        $this->assertIsInt($movie->getYear());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetRating()
+    public function testCanGetRating(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('float', $movie->getRating());
+        $this->assertIsFloat($movie->getRating());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetRuntime()
+    public function testCanGetRuntime(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getRuntime());
+        $this->assertIsInt($movie->getRuntime());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetGenres()
+    public function testCanGetGenres(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
         $this->assertTrue($movie->getGenres()->isNotEmpty());
-        $this->assertInternalType('string', $movie->getGenres()->first());
+        $this->assertIsString($movie->getGenres()->first());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetDownloadCount()
+    public function testCanGetDownloadCount(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getDownloadCount());
+        $this->assertIsInt($movie->getDownloadCount());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetLikeCount()
+    public function testCanGetLikeCount(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getLikeCount());
+        $this->assertIsInt($movie->getLikeCount());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSummary()
+    public function testCanGetSummary(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getSummary());
+        $this->assertIsString($movie->getSummary());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetDescriptionFull()
+    public function testCanGetDescriptionFull(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getDescriptionFull());
+        $this->assertIsString($movie->getDescriptionFull());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSynopsis()
+    public function testCanGetSynopsis(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getSynopsis());
+        $this->assertIsString($movie->getSynopsis());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetYtTrailerCode()
+    public function testCanGetYtTrailerCode(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getYtTrailerCode());
+        $this->assertIsString($movie->getYtTrailerCode());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetLanguage()
+    public function testCanGetLanguage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getLanguage());
+        $this->assertIsString($movie->getLanguage());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetMpaRating()
+    public function testCanGetMpaRating(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getMpaRating());
+        $this->assertIsString($movie->getMpaRating());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetBackgroundImage()
+    public function testCanGetBackgroundImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getBackgroundImage());
+        $this->assertIsString($movie->getBackgroundImage());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetBackgroundImageOriginal()
+    public function testCanGetBackgroundImageOriginal(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getBackgroundImageOriginal());
+        $this->assertIsString($movie->getBackgroundImageOriginal());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetSmallCoverImage()
+    public function testCanGetSmallCoverImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getSmallCoverImage());
+        $this->assertIsString($movie->getSmallCoverImage());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetMediumCoverImage()
+    public function testCanGetMediumCoverImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getMediumCoverImage());
+        $this->assertIsString($movie->getMediumCoverImage());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetLargeCoverImage()
+    public function testCanGetLargeCoverImage(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getLargeCoverImage());
+        $this->assertIsString($movie->getLargeCoverImage());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetState()
+    public function testCanGetState(): void
     {
         $movie = Movies::list([
             'movie_id' => 10,
         ])->first();
-        $this->assertInternalType('string', $movie->getState());
+        $this->assertIsString($movie->getState());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetTorrents()
+    public function testCanGetTorrents(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
         $this->assertTrue($movie->getTorrents()->isNotEmpty());
-        $this->assertInternalType('string', $movie->getTorrents()->first()->getUrl());
+        $this->assertIsString($movie->getTorrents()->first()->getUrl());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetDateUploaded()
+    public function testCanGetDateUploaded(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('string', $movie->getDateUploaded());
+        $this->assertIsString($movie->getDateUploaded());
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
-    public function testCanGetDateUploadedUnix()
+    public function testCanGetDateUploadedUnix(): void
     {
         $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertInternalType('int', $movie->getDateUploadedUnix());
+        $this->assertIsInt($movie->getDateUploadedUnix());
     }
 }
