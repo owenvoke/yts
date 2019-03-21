@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace pxgamer\YTS;
 
 use pxgamer\YTS\Adapter\HttpAdapter;
