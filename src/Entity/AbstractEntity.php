@@ -18,9 +18,11 @@ abstract class AbstractEntity
         if (!$parameters) {
             return;
         }
+
         if ($parameters instanceof stdClass) {
             $parameters = get_object_vars($parameters);
         }
+
         $this->build($parameters);
     }
 
@@ -40,12 +42,14 @@ abstract class AbstractEntity
         $called = static::class;
         $reflection = new ReflectionClass($called);
         $properties = $reflection->getProperties(ReflectionProperty::IS_PUBLIC);
+
         foreach ($properties as $property) {
             $prop = $property->getName();
             if (isset($this->$prop) && $property->class === $called) {
                 $settings[self::convertToSnakeCase($prop)] = $this->$prop;
             }
         }
+
         return $settings;
     }
 
@@ -53,6 +57,7 @@ abstract class AbstractEntity
     {
         $dateTime = new DateTime($date);
         $dateTime->setTimezone(new DateTimeZone(date_default_timezone_get()));
+
         return $dateTime->format(DateTime::ATOM);
     }
 
@@ -61,6 +66,7 @@ abstract class AbstractEntity
         $callback = function ($match) {
             return strtoupper($match[2]);
         };
+
         return lcfirst(preg_replace_callback('/(^|_)([a-z])/', $callback, $str));
     }
 
