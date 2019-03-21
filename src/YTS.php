@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace pxgamer\YTS;
 
 use pxgamer\YTS\Adapter\HttpAdapter;
-use pxgamer\YTS\Api\Movies;
+use pxgamer\YTS\Api\Movie;
 
 final class YTS
 {
@@ -17,8 +17,8 @@ final class YTS
         $this->adapter = $adapter;
     }
 
-    public function movies(): Movies
+    public function movie(): Movie
     {
-        return new Movies($this->adapter);
+        return new Movie($this->adapter);
     }
 }

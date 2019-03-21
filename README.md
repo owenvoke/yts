@@ -19,43 +19,47 @@ $ composer require pxgamer/yts
 
 ## Usage
 
-#### List Movies
-
-Returns a Collection instance containing Movie instances.
+#### Setup
 
 ```php
-Movies::list([
-    'quality'         => Movies::QUALITY_ALL, // A quality constant
+use pxgamer\YTS\Adapter\HttpAdapter;
+use pxgamer\YTS\YTS;
+
+// Create an adapter
+$adapter = new HttpAdapter('');
+
+// Create a YTS object with the previous adapter
+$yts = new YTS($adapter);
+```
+
+#### Movies
+
+```php
+use pxgamer\YTS\Api\Movie;
+
+// Return the Movie api
+$movie = $yts->movie();
+
+// Return an array of Movie entities
+$movies = $movies->getAll([
+    'quality'         => Movie::QUALITY_ALL,  // A quality constant
     'query_term'      => 0,                   // A query string, or 0 to ignore
     'page'            => 1,                   // An integer page number
     'minimum_rating'  => 0,                   // The minimum movie rating
     'genre'           => '',                  // A string containing the genre
     'sort_by'         => 'date-added',        // The sort-by order
     'order_by'        => 'desc',              // The direction to order by
-    'with_rt_ratings' => false,               // Returns the list with Rotten Tomatoes ratings
+    'with_rt_ratings' => true,                // Returns the list with Rotten Tomatoes ratings
 ]);
-```
 
-#### Movie Details
-
-Returns a Movie instance.
-
-```php
-Movies::details([
-    'movie_id'    => null,  // The ID of the movie to retrieve
-    'with_images' => false, // Return with image URLs
-    'with_cast'   => false, // Return with information about the cast
+// Return a Movie entity by its id
+$movieInformation = $movie->getMovieInformation(123, [
+    'with_images' => true,  // Return with image URLs
+    'with_cast'   => truee, // Return with information about the cast
 ]);
-```
 
-#### Movie Suggestions
-
-Returns a Collection instance containing 0 to 4 Movie instances.
-
-```php
-Movies::suggestions([
-    'movie_id' => null, // The ID of the movie to retrieve suggestions for
-]);
+// Return an array of Movie suggestions by its id
+$movieSuggestions = $movie->getMovieSuggestions(123);
 ```
 
 ## Change log

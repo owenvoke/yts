@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace pxgamer\YTS\Api;
 
-use pxgamer\YTS\Entity\Movie;
+use pxgamer\YTS\Entity\Movie as MovieEntity;
 
-final class Movies extends AbstractApi
+final class Movie extends AbstractApi
 {
     /** Constant for all qualities. */
     public const QUALITY_ALL = 'All';
@@ -39,19 +39,20 @@ final class Movies extends AbstractApi
         $movieData = json_decode($response);
 
         return array_map(function ($action) {
-            return new Movie($action);
+            return new MovieEntity($action);
         }, $movieData['data']['movies']);
     }
 
-    public function getById(array $options = null): Movie
+    public function getMovieInformation(int $movieId, array $options = null): MovieEntity
     {
         $options = $options ?? [];
 
         $options = array_merge([
-            'movie_id' => null,
             'with_images' => false,
             'with_cast' => false,
         ], $options);
+
+        $options['movie_id'] = $movieId;
 
         $response = $this->adapter->get(
             sprintf('%s/movie_details.json?%s', $this->endpoint, http_build_query($options))
@@ -59,10 +60,10 @@ final class Movies extends AbstractApi
 
         $movieData = json_decode($response);
 
-        return new Movie($movieData['data']['movie']);
+        return new MovieEntity($movieData['data']['movie']);
     }
 
-    public function suggestions(int $movieId): array
+    public function getMovieSuggestions(int $movieId): array
     {
         $response = $this->adapter->get(
             sprintf('%s/movie_suggestions.json?movie_id=%s', $this->endpoint, $movieId)
@@ -71,7 +72,7 @@ final class Movies extends AbstractApi
         $movieData = json_decode($response);
 
         return array_map(function ($action) {
-            return new Movie($action);
+            return new MovieEntity($action);
         }, $movieData['data']['movies']);
     }
 }
