@@ -9,7 +9,7 @@ use pxgamer\YTS\Adapter\HttpAdapter;
 abstract class AbstractApi
 {
     /** @var string */
-    public const ENDPOINT = 'https://yts.am/api/v2/';
+    public const ENDPOINT = 'https://yts.am/api/v2';
     /** @var HttpAdapter */
     protected $adapter;
     /** @var string */
