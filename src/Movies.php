@@ -4,6 +4,7 @@ namespace pxgamer\YTS;
 
 use Exception;
 use Illuminate\Support\Collection;
+use pxgamer\YTS\Exception\HttpException;
 
 class Movies
 {
@@ -83,7 +84,7 @@ class Movies
             return self::buildCollection($response['data']['movies']);
         }
 
-        throw new Exceptions\NoDataFoundException();
+        throw new HttpException('No data was found from the API.');
     }
 
     /**

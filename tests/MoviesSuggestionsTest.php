@@ -4,7 +4,7 @@ namespace pxgamer\YTS;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
-use pxgamer\YTS\Exceptions\NoDataFoundException;
+use pxgamer\YTS\Exception\HttpException;
 
 class MoviesSuggestionsTest extends TestCase
 {
@@ -49,7 +49,7 @@ class MoviesSuggestionsTest extends TestCase
      */
     public function testThrowsErrorOnInvalidData(): void
     {
-        $this->expectException(NoDataFoundException::class);
+        $this->expectException(HttpException::class);
         Movies::suggestions();
     }
 }
