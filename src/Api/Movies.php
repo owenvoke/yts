@@ -1,12 +1,13 @@
 <?php
 
-namespace pxgamer\YTS;
+declare(strict_types=1);
+
+namespace pxgamer\YTS\Api;
 
 use Exception;
-use Illuminate\Support\Collection;
-use pxgamer\YTS\Exception\HttpException;
+use pxgamer\YTS\Entity\Movie;
 
-class Movies
+final class Movies extends AbstractApi
 {
     /** Constant for all qualities. */
     public const QUALITY_ALL = 'All';
@@ -18,12 +19,12 @@ class Movies
     public const QUALITY_3D = '3D';
 
     /**
-     * Retrieve a collection of Movie instances.
+     * Retrieve an array of Movie instances.
      * @param array $options
-     * @return Collection
+     * @return array
      * @throws Exception
      */
-    public static function list(array $options = null): Collection
+    public function list(array $options = null): array
     {
         $options = $options ?? [];
 
@@ -38,9 +39,13 @@ class Movies
             'with_rt_ratings' => false,
         ], $options);
 
-        $response = YTS::getFromApi('list_movies.json', $options);
+        $response = $this->adapter->get('list_movies.json?'.http_build_query($options));
 
-        return self::buildCollection($response['data']['movies']);
+        $movieData = json_decode($response);
+
+        return array_map(function ($action) {
+            return new Movie($action);
+        }, $movieData['data']['movies']);
     }
 
     /**
@@ -49,7 +54,7 @@ class Movies
      * @return Movie
      * @throws Exception
      */
-    public static function details(array $options = null): Movie
+    public function details(array $options = null): Movie
     {
         $options = $options ?? [];
 
@@ -59,18 +64,20 @@ class Movies
             'with_cast' => false,
         ], $options);
 
-        $response = YTS::getFromApi('movie_details.json', $options);
+        $response = $this->adapter->get('movie_details.json?'.http_build_query($options));
 
-        return new Movie($response['data']['movie']);
+        $movieData = json_decode($response);
+
+        return new Movie($movieData['data']['movie']);
     }
 
     /**
-     * Retrieve a Collection of suggested Movie instances.
+     * Retrieve an array of suggested Movie instances.
      * @param array $options
-     * @return Collection
+     * @return array
      * @throws Exception
      */
-    public static function suggestions(array $options = null): Collection
+    public function suggestions(array $options = null): array
     {
         $options = $options ?? [];
 
@@ -78,29 +85,12 @@ class Movies
             'movie_id' => null,
         ], $options);
 
-        $response = YTS::getFromApi('movie_suggestions.json', $options);
+        $response = $this->adapter->get('movie_suggestions.json?'.http_build_query($options));
 
-        if (isset($response['data']['movies'])) {
-            return self::buildCollection($response['data']['movies']);
-        }
+        $movieData = json_decode($response);
 
-        throw new HttpException('No data was found from the API.');
-    }
-
-    /**
-     * Build a Collection of Movie classes from an array.
-     * @param array $data
-     * @return Collection
-     */
-    public static function buildCollection(array $data): Collection
-    {
-        $collection = new Collection();
-
-        foreach ($data as $datum) {
-            $torrent = new Movie($datum);
-            $collection->push($torrent);
-        }
-
-        return $collection;
+        return array_map(function ($action) {
+            return new Movie($action);
+        }, $movieData['data']['movies']);
     }
 }
