@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace pxgamer\YTS\Api;
 
-use Exception;
 use pxgamer\YTS\Entity\Movie;
 
 final class Movies extends AbstractApi
@@ -18,13 +17,7 @@ final class Movies extends AbstractApi
     /** Constant for 3D quality. */
     public const QUALITY_3D = '3D';
 
-    /**
-     * Retrieve an array of Movie instances.
-     * @param array $options
-     * @return array
-     * @throws Exception
-     */
-    public function list(array $options = null): array
+    public function getAll(array $options = null): array
     {
         $options = $options ?? [];
 
@@ -39,7 +32,9 @@ final class Movies extends AbstractApi
             'with_rt_ratings' => false,
         ], $options);
 
-        $response = $this->adapter->get('list_movies.json?'.http_build_query($options));
+        $response = $this->adapter->get(
+            sprintf('%s/list_movies.json?%s', $this->endpoint, http_build_query($options))
+        );
 
         $movieData = json_decode($response);
 
@@ -48,13 +43,7 @@ final class Movies extends AbstractApi
         }, $movieData['data']['movies']);
     }
 
-    /**
-     * Retrieve a Movie instance.
-     * @param array $options
-     * @return Movie
-     * @throws Exception
-     */
-    public function details(array $options = null): Movie
+    public function getById(array $options = null): Movie
     {
         $options = $options ?? [];
 
@@ -64,28 +53,20 @@ final class Movies extends AbstractApi
             'with_cast' => false,
         ], $options);
 
-        $response = $this->adapter->get('movie_details.json?'.http_build_query($options));
+        $response = $this->adapter->get(
+            sprintf('%s/movie_details.json?%s', $this->endpoint, http_build_query($options))
+        );
 
         $movieData = json_decode($response);
 
         return new Movie($movieData['data']['movie']);
     }
 
-    /**
-     * Retrieve an array of suggested Movie instances.
-     * @param array $options
-     * @return array
-     * @throws Exception
-     */
-    public function suggestions(array $options = null): array
+    public function suggestions(int $movieId): array
     {
-        $options = $options ?? [];
-
-        $options = array_merge([
-            'movie_id' => null,
-        ], $options);
-
-        $response = $this->adapter->get('movie_suggestions.json?'.http_build_query($options));
+        $response = $this->adapter->get(
+            sprintf('%s/movie_suggestions.json?movie_id=%s', $this->endpoint, $movieId)
+        );
 
         $movieData = json_decode($response);
 
