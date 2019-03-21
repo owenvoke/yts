@@ -20,7 +20,7 @@ class HttpAdapter
     /** @var Response */
     protected $response;
 
-    public function __construct(string $token, ?ClientInterface $client = null)
+    public function __construct(?string $token, ?ClientInterface $client = null)
     {
         $this->client = $client ?: new Client(['headers' => ['Authorization' => sprintf('Bearer %s', $token)]]);
     }
