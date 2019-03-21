@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace pxgamer\YTS;
 
 use pxgamer\YTS\Adapter\HttpAdapter;
+use pxgamer\YTS\Api\Movies;
 
-class YTS
+final class YTS
 {
     /** @var HttpAdapter */
     protected $adapter;
@@ -14,5 +15,10 @@ class YTS
     public function __construct(HttpAdapter $adapter)
     {
         $this->adapter = $adapter;
+    }
+
+    public function movies(): Movies
+    {
+        return new Movies($this->adapter);
     }
 }
