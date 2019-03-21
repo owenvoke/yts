@@ -1,23 +1,25 @@
 <?php
 
-namespace pxgamer\YTS;
+declare(strict_types=1);
 
-use Illuminate\Support\Collection;
+namespace pxgamer\YTS\Entity;
 
-class Movie
+use function is_array;
+
+final class Movie extends AbstractEntity
 {
     /** @var int */
     protected $id;
     /** @var string */
     protected $url;
     /** @var string */
-    protected $imdb_code;
+    protected $imdbCode;
     /** @var string */
     protected $title;
     /** @var string */
-    protected $title_english;
+    protected $titleEnglish;
     /** @var string */
-    protected $title_long;
+    protected $titleLong;
     /** @var string */
     protected $slug;
     /** @var int */
@@ -26,61 +28,58 @@ class Movie
     protected $rating;
     /** @var int */
     protected $runtime;
-    /** @var Collection */
+    /** @var array */
     protected $genres;
     /** @var int */
-    protected $download_count;
+    protected $downloadCount;
     /** @var int */
-    protected $like_count;
+    protected $likeCount;
     /** @var string */
     protected $summary;
     /** @var string */
-    protected $description_full;
+    protected $descriptionFull;
     /** @var string */
     protected $synopsis;
     /** @var string */
-    protected $yt_trailer_code;
+    protected $ytTrailerCode;
     /** @var string */
     protected $language;
     /** @var string */
-    protected $mpa_rating;
+    protected $mpaRating;
     /** @var string */
-    protected $background_image;
+    protected $backgroundImage;
     /** @var string */
-    protected $background_image_original;
+    protected $backgroundImageOriginal;
     /** @var string */
-    protected $small_cover_image;
+    protected $smallCoverImage;
     /** @var string */
-    protected $medium_cover_image;
+    protected $mediumCoverImage;
     /** @var string */
-    protected $large_cover_image;
+    protected $largeCoverImage;
     /** @var string */
     protected $state;
-    /** @var Collection */
+    /** @var array */
     protected $torrents;
     /** @var string */
-    protected $date_uploaded;
+    protected $dateUploaded;
     /** @var int */
-    protected $date_uploaded_unix;
+    protected $dateUploadedUnix;
 
-    public function __construct(array $prefill = null)
+    public function __construct(array $parameters = null)
     {
-        $prefill = $prefill ?? [];
-
-        foreach ($prefill as $item => $value) {
-            if (property_exists(self::class, $item)) {
-                switch ($item) {
-                    case 'torrents':
-                        $this->torrents = Torrents::buildCollection($value);
-                        break;
-                    case 'genres':
-                        $this->genres = collect($value);
-                        break;
-                    default:
-                        $this->$item = $value;
-                }
-            }
+        if (!$parameters) {
+            return;
         }
+
+        if (isset($parameters['torrents']) && is_array($parameters['torrents'])) {
+            foreach ($parameters['torrents'] as $torrent) {
+                $this->torrents[] = new Torrent($torrent);
+            }
+
+            unset($parameters['torrents']);
+        }
+
+        parent::__construct($parameters);
     }
 
     public function getId(): int
@@ -88,29 +87,14 @@ class Movie
         return $this->id;
     }
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
     public function getUrl(): string
     {
         return $this->url;
     }
 
-    public function setUrl(string $url): void
-    {
-        $this->url = $url;
-    }
-
     public function getImdbCode(): string
     {
-        return $this->imdb_code;
-    }
-
-    public function setImdbCode(string $imdb_code): void
-    {
-        $this->imdb_code = $imdb_code;
+        return $this->imdbCode;
     }
 
     public function getTitle(): string
@@ -118,29 +102,14 @@ class Movie
         return $this->title;
     }
 
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
     public function getTitleEnglish(): string
     {
-        return $this->title_english;
-    }
-
-    public function setTitleEnglish(string $title_english): void
-    {
-        $this->title_english = $title_english;
+        return $this->titleEnglish;
     }
 
     public function getTitleLong(): string
     {
-        return $this->title_long;
-    }
-
-    public function setTitleLong(string $title_long): void
-    {
-        $this->title_long = $title_long;
+        return $this->titleLong;
     }
 
     public function getSlug(): string
@@ -148,19 +117,9 @@ class Movie
         return $this->slug;
     }
 
-    public function setSlug(string $slug): void
-    {
-        $this->slug = $slug;
-    }
-
     public function getYear(): int
     {
         return $this->year;
-    }
-
-    public function setYear(int $year): void
-    {
-        $this->year = $year;
     }
 
     public function getRating(): float
@@ -168,49 +127,24 @@ class Movie
         return $this->rating;
     }
 
-    public function setRating(float $rating): void
-    {
-        $this->rating = $rating;
-    }
-
     public function getRuntime(): int
     {
         return $this->runtime;
     }
 
-    public function setRuntime(int $runtime): void
-    {
-        $this->runtime = $runtime;
-    }
-
-    public function getGenres(): Collection
+    public function getGenres(): array
     {
         return $this->genres;
     }
 
-    public function setGenres(Collection $genres): void
-    {
-        $this->genres = $genres;
-    }
-
     public function getDownloadCount(): int
     {
-        return $this->download_count;
-    }
-
-    public function setDownloadCount($download_count): void
-    {
-        $this->download_count = $download_count;
+        return $this->downloadCount;
     }
 
     public function getLikeCount(): int
     {
-        return $this->like_count;
-    }
-
-    public function setLikeCount($like_count): void
-    {
-        $this->like_count = $like_count;
+        return $this->likeCount;
     }
 
     public function getSummary(): string
@@ -218,19 +152,9 @@ class Movie
         return $this->summary;
     }
 
-    public function setSummary(string $summary): void
-    {
-        $this->summary = $summary;
-    }
-
     public function getDescriptionFull(): string
     {
-        return $this->description_full;
-    }
-
-    public function setDescriptionFull(string $description_full): void
-    {
-        $this->description_full = $description_full;
+        return $this->descriptionFull;
     }
 
     public function getSynopsis(): string
@@ -238,19 +162,9 @@ class Movie
         return $this->synopsis;
     }
 
-    public function setSynopsis(string $synopsis): void
-    {
-        $this->synopsis = $synopsis;
-    }
-
     public function getYtTrailerCode(): string
     {
-        return $this->yt_trailer_code;
-    }
-
-    public function setYtTrailerCode(string $yt_trailer_code): void
-    {
-        $this->yt_trailer_code = $yt_trailer_code;
+        return $this->ytTrailerCode;
     }
 
     public function getLanguage(): string
@@ -258,69 +172,34 @@ class Movie
         return $this->language;
     }
 
-    public function setLanguage(string $language): void
-    {
-        $this->language = $language;
-    }
-
     public function getMpaRating(): string
     {
-        return $this->mpa_rating;
-    }
-
-    public function setMpaRating(string $mpa_rating): void
-    {
-        $this->mpa_rating = $mpa_rating;
+        return $this->mpaRating;
     }
 
     public function getBackgroundImage(): string
     {
-        return $this->background_image;
-    }
-
-    public function setBackgroundImage(string $background_image): void
-    {
-        $this->background_image = $background_image;
+        return $this->backgroundImage;
     }
 
     public function getBackgroundImageOriginal(): string
     {
-        return $this->background_image_original;
-    }
-
-    public function setBackgroundImageOriginal(string $background_image_original): void
-    {
-        $this->background_image_original = $background_image_original;
+        return $this->backgroundImageOriginal;
     }
 
     public function getSmallCoverImage(): string
     {
-        return $this->small_cover_image;
-    }
-
-    public function setSmallCoverImage(string $small_cover_image): void
-    {
-        $this->small_cover_image = $small_cover_image;
+        return $this->smallCoverImage;
     }
 
     public function getMediumCoverImage(): string
     {
-        return $this->medium_cover_image;
-    }
-
-    public function setMediumCoverImage(string $medium_cover_image): void
-    {
-        $this->medium_cover_image = $medium_cover_image;
+        return $this->mediumCoverImage;
     }
 
     public function getLargeCoverImage(): string
     {
-        return $this->large_cover_image;
-    }
-
-    public function setLargeCoverImage(string $large_cover_image): void
-    {
-        $this->large_cover_image = $large_cover_image;
+        return $this->largeCoverImage;
     }
 
     public function getState(): string
@@ -328,38 +207,18 @@ class Movie
         return $this->state;
     }
 
-    public function setState(string $state): void
-    {
-        $this->state = $state;
-    }
-
-    public function getTorrents(): Collection
+    public function getTorrents(): array
     {
         return $this->torrents;
     }
 
-    public function setTorrents(Collection $torrents): void
-    {
-        $this->torrents = $torrents;
-    }
-
     public function getDateUploaded(): string
     {
-        return $this->date_uploaded;
-    }
-
-    public function setDateUploaded(string $date_uploaded): void
-    {
-        $this->date_uploaded = $date_uploaded;
+        return $this->dateUploaded;
     }
 
     public function getDateUploadedUnix(): int
     {
-        return $this->date_uploaded_unix;
-    }
-
-    public function setDateUploadedUnix(int $date_uploaded_unix): void
-    {
-        $this->date_uploaded_unix = $date_uploaded_unix;
+        return $this->dateUploadedUnix;
     }
 }
