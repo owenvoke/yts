@@ -26,7 +26,7 @@ use pxgamer\YTS\Adapter\HttpAdapter;
 use pxgamer\YTS\YTS;
 
 // Create an adapter
-$adapter = new HttpAdapter('');
+$adapter = new HttpAdapter();
 
 // Create a YTS object with the previous adapter
 $yts = new YTS($adapter);
