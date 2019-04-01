@@ -7,23 +7,23 @@ namespace pxgamer\YTS\Entity;
 final class Torrent extends AbstractEntity
 {
     /** @var string */
-    protected $url;
+    private $url;
     /** @var string */
-    protected $hash;
+    private $hash;
     /** @var string */
-    protected $quality;
+    private $quality;
     /** @var int */
-    protected $seeds;
+    private $seeds;
     /** @var int */
-    protected $peers;
+    private $peers;
     /** @var string */
-    protected $size;
+    private $size;
     /** @var int */
-    protected $sizeBytes;
+    private $sizeBytes;
     /** @var string */
-    protected $dateUploaded;
+    private $dateUploaded;
     /** @var int */
-    protected $dateUploadedUnix;
+    private $dateUploadedUnix;
 
     public function getUrl(): string
     {

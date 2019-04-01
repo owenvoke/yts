@@ -9,61 +9,61 @@ use function is_array;
 final class Movie extends AbstractEntity
 {
     /** @var int */
-    protected $id;
+    private $id;
     /** @var string */
-    protected $url;
+    private $url;
     /** @var string */
-    protected $imdbCode;
+    private $imdbCode;
     /** @var string */
-    protected $title;
+    private $title;
     /** @var string */
-    protected $titleEnglish;
+    private $titleEnglish;
     /** @var string */
-    protected $titleLong;
+    private $titleLong;
     /** @var string */
-    protected $slug;
+    private $slug;
     /** @var int */
-    protected $year;
+    private $year;
     /** @var float */
-    protected $rating;
+    private $rating;
     /** @var int */
-    protected $runtime;
+    private $runtime;
     /** @var array */
-    protected $genres;
+    private $genres;
     /** @var int */
-    protected $downloadCount;
+    private $downloadCount;
     /** @var int */
-    protected $likeCount;
+    private $likeCount;
     /** @var string */
-    protected $summary;
+    private $summary;
     /** @var string */
-    protected $descriptionFull;
+    private $descriptionFull;
     /** @var string */
-    protected $synopsis;
+    private $synopsis;
     /** @var string */
-    protected $ytTrailerCode;
+    private $ytTrailerCode;
     /** @var string */
-    protected $language;
+    private $language;
     /** @var string */
-    protected $mpaRating;
+    private $mpaRating;
     /** @var string */
-    protected $backgroundImage;
+    private $backgroundImage;
     /** @var string */
-    protected $backgroundImageOriginal;
+    private $backgroundImageOriginal;
     /** @var string */
-    protected $smallCoverImage;
+    private $smallCoverImage;
     /** @var string */
-    protected $mediumCoverImage;
+    private $mediumCoverImage;
     /** @var string */
-    protected $largeCoverImage;
+    private $largeCoverImage;
     /** @var string */
-    protected $state;
+    private $state;
     /** @var array */
-    protected $torrents;
+    private $torrents;
     /** @var string */
-    protected $dateUploaded;
+    private $dateUploaded;
     /** @var int */
-    protected $dateUploadedUnix;
+    private $dateUploadedUnix;
 
     public function __construct(array $parameters = null)
     {
