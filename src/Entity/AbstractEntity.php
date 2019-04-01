@@ -61,16 +61,16 @@ abstract class AbstractEntity
         return $dateTime->format(DateTime::ATOM);
     }
 
-    protected static function convertToCamelCase($str): string
+    protected static function convertToCamelCase(string $str): string
     {
-        $callback = function ($match) {
+        $callback = static function (array $match) {
             return strtoupper($match[2]);
         };
 
         return lcfirst(preg_replace_callback('/(^|_)([a-z])/', $callback, $str));
     }
 
-    protected static function convertToSnakeCase($str): string
+    protected static function convertToSnakeCase(string $str): string
     {
         return strtolower(implode('_', preg_split('/(?=[A-Z])/', $str)));
     }

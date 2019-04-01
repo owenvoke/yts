@@ -72,6 +72,7 @@ final class Movie extends AbstractEntity
         }
 
         if (isset($parameters['torrents']) && is_array($parameters['torrents'])) {
+            $this->torrents = [];
             foreach ($parameters['torrents'] as $torrent) {
                 $this->torrents[] = new Torrent($torrent);
             }

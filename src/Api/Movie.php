@@ -38,7 +38,7 @@ final class Movie extends AbstractApi
 
         $movieData = json_decode($response);
 
-        return array_map(static function ($action) {
+        return array_map(static function (array $action): MovieEntity {
             return new MovieEntity($action);
         }, $movieData['data']['movies']);
     }
@@ -71,7 +71,7 @@ final class Movie extends AbstractApi
 
         $movieData = json_decode($response);
 
-        return array_map(static function ($action) {
+        return array_map(static function (array $action): MovieEntity {
             return new MovieEntity($action);
         }, $movieData['data']['movies']);
     }
