@@ -12,7 +12,7 @@ use pxgamer\YTS\Exception\HttpException;
 use function is_array;
 use function json_decode;
 
-class HttpAdapter
+final class HttpAdapter
 {
     /** @var ClientInterface */
     protected $client;
