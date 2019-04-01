@@ -15,14 +15,14 @@ use function json_decode;
 final class HttpAdapter
 {
     /** @var ClientInterface */
-    protected $client;
+    private $client;
 
     /** @var Response */
-    protected $response;
+    private $response;
 
-    public function __construct(?string $token, ?ClientInterface $client = null)
+    public function __construct(?string $token = null, ?ClientInterface $client = null)
     {
-        $this->client = $client ?: new Client(['headers' => ['Authorization' => sprintf('Bearer %s', $token)]]);
+        $this->client = $client ?: new Client();
     }
 
     /**
@@ -115,7 +115,7 @@ final class HttpAdapter
     }
 
     /** @throws HttpException */
-    protected function handleError(): void
+    private function handleError(): void
     {
         $body = (string)$this->response->getBody();
         $code = (int)$this->response->getStatusCode();
