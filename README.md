@@ -1,4 +1,4 @@
-# yts
+# YTS
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -8,6 +8,9 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 A full wrapper for the YTS API.
+
+## About YTS
+YIFY Torrents or YTS is a peer-to-peer release group known for distributing large numbers of movies as free downloads through BitTorrent. YIFY releases were characterised through their HD video quality in a small file size, which attracted many downloaders.
 
 ## Install
 
