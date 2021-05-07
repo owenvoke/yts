@@ -32,7 +32,7 @@ class YTS
     /* Retrieve the current GuzzleHttp Client instance. */
     private static function getClient(): Client
     {
-        if (!self::$client instanceof Client) {
+        if (! self::$client instanceof Client) {
             self::$client = new Client([
                 'base_uri' => self::BASE_URI,
             ]);

@@ -23,7 +23,7 @@ class MoviesListTest extends TestCase
     public function testCanRetrieveMoviesByQuality(): void
     {
         $movies = Movies::list([
-            'quality' => Movies::QUALITY_720
+            'quality' => Movies::QUALITY_720,
         ]);
         $this->assertTrue($movies->isNotEmpty());
         $this->assertTrue($movies->first()->getId() > 0);

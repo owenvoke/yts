@@ -113,7 +113,7 @@ class MovieSetTest extends TestCase
     public function testCanGetGenres(): void
     {
         $collection = collect([
-            'Action'
+            'Action',
         ]);
         $movie = new Movie();
         $movie->setGenres($collection);
@@ -266,7 +266,7 @@ class MovieSetTest extends TestCase
     public function testCanGetTorrents(): void
     {
         $collection = collect([
-           new Torrent()
+            new Torrent(),
         ]);
         $movie = new Movie();
         $movie->setTorrents($collection);
