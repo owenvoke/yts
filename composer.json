@@ -1,5 +1,5 @@
 {
-    "name": "pxgamer/yts",
+    "name": "owenvoke/yts",
     "type": "library",
     "description": "A full wrapper for the YTS API.",
     "license": "MIT",
@@ -13,12 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "pxgamer\\YTS\\": "src"
+            "OwenVoke\\YTS\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "pxgamer\\YTS\\": "tests"
+            "OwenVoke\\YTS\\": "tests"
         }
     },
     "scripts": {

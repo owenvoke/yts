@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\YTS;
+namespace OwenVoke\YTS;
 
 use Exception;
 use Illuminate\Support\Collection;

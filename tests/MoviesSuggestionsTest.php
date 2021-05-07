@@ -1,10 +1,10 @@
 <?php
 
-namespace pxgamer\YTS;
+namespace OwenVoke\YTS;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
-use pxgamer\YTS\Exceptions\NoDataFoundException;
+use OwenVoke\YTS\Exceptions\NoDataFoundException;
 
 class MoviesSuggestionsTest extends TestCase
 {

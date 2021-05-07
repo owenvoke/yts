@@ -1,6 +1,6 @@
 <?php
 
-namespace pxgamer\YTS\Exceptions;
+namespace OwenVoke\YTS\Exceptions;
 
 use Exception;
 
