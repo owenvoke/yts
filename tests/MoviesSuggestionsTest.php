@@ -3,8 +3,8 @@
 namespace OwenVoke\YTS;
 
 use Exception;
-use PHPUnit\Framework\TestCase;
 use OwenVoke\YTS\Exceptions\NoDataFoundException;
+use PHPUnit\Framework\TestCase;
 
 class MoviesSuggestionsTest extends TestCase
 {
