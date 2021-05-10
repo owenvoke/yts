@@ -1,54 +1,31 @@
 <?php
 
-namespace OwenVoke\YTS;
+use OwenVoke\YTS\Movie;
+use OwenVoke\YTS\Movies;
 
-use Exception;
-use InvalidArgumentException;
-use PHPUnit\Framework\TestCase;
+it('can retrieve a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie)->toBeInstanceOf(Movie::class);
+});
 
-class MoviesDetailsTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovie(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertInstanceOf(Movie::class, $movie);
-    }
+it('can retrieve a movie with images', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+        'with_images' => true,
+    ]);
+    expect($movie)->toBeInstanceOf(Movie::class);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovieWithImages(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-            'with_images' => true,
-        ]);
-        $this->assertInstanceOf(Movie::class, $movie);
-    }
+it('can retrieve a movie with the cast', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+        'with_cast' => true,
+    ]);
+    expect($movie)->toBeInstanceOf(Movie::class);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovieWithCast(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-            'with_cast' => true,
-        ]);
-        $this->assertInstanceOf(Movie::class, $movie);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testThrowsErrorOnInvalidData(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        Movies::details();
-    }
-}
+it('throws an error on invalid data', function () {
+    Movies::details();
+})->throws(InvalidArgumentException::class);

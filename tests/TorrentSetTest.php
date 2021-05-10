@@ -1,100 +1,57 @@
 <?php
 
-namespace OwenVoke\YTS;
+use OwenVoke\YTS\Torrent;
 
-use Exception;
-use PHPUnit\Framework\TestCase;
+it('can set the URL for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setUrl('');
+    expect($torrent->getUrl())->toBeString()->toEqual('');
+});
 
-class TorrentSetTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanGetUrl(): void
-    {
-        $movie = new Torrent();
-        $movie->setUrl('');
-        $this->assertEquals('', $movie->getUrl());
-    }
+it('can set the hash for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setHash('');
+    expect($torrent->getHash())->toBeString()->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetHash(): void
-    {
-        $movie = new Torrent();
-        $movie->setHash('');
-        $this->assertEquals('', $movie->getHash());
-    }
+it('can set the quality for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setQuality('');
+    expect($torrent->getQuality())->toBeString()->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetQuality(): void
-    {
-        $movie = new Torrent();
-        $movie->setQuality('');
-        $this->assertEquals('', $movie->getQuality());
-    }
+it('can set the seeds for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setSeeds(100);
+    expect($torrent->getSeeds())->toBeInt()->toEqual(100);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSeeds(): void
-    {
-        $movie = new Torrent();
-        $movie->setSeeds(1);
-        $this->assertEquals(1, $movie->getSeeds());
-    }
+it('can set the peers for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setPeers(100);
+    expect($torrent->getPeers())->toBeInt()->toEqual(100);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetPeers(): void
-    {
-        $movie = new Torrent();
-        $movie->setPeers(1);
-        $this->assertEquals(1, $movie->getPeers());
-    }
+it('can set the size of a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setSize('100MB');
+    expect($torrent->getSize())->toBeString()->toEqual('100MB');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSize(): void
-    {
-        $movie = new Torrent();
-        $movie->setSize('');
-        $this->assertEquals('', $movie->getSize());
-    }
+it('can set the size of a torrent in bytes', function () {
+    $torrent = new Torrent();
+    $torrent->setSizeBytes(1024);
+    expect($torrent->getSizeBytes())->toBeInt()->toEqual(1024);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSizeBytes(): void
-    {
-        $movie = new Torrent();
-        $movie->setSizeBytes(1);
-        $this->assertEquals(1, $movie->getSizeBytes());
-    }
+it('can set the upload date for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setDateUploaded('2021-01-01 01:01:01');
+    expect($torrent->getDateUploaded())->toBeString()->toEqual('2021-01-01 01:01:01');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploaded(): void
-    {
-        $movie = new Torrent();
-        $movie->setDateUploaded('');
-        $this->assertEquals('', $movie->getDateUploaded());
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploadedUnix(): void
-    {
-        $time = time();
-        $movie = new Torrent();
-        $movie->setDateUploadedUnix($time);
-        $this->assertEquals($time, $movie->getDateUploadedUnix());
-    }
-}
+it('can set the unix timestamp upload date for a torrent', function () {
+    $torrent = new Torrent();
+    $torrent->setDateUploadedUnix(1620636301);
+    expect($torrent->getDateUploadedUnix())->toBeInt()->toEqual(1620636301);
+});

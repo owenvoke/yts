@@ -1,296 +1,168 @@
 <?php
 
-namespace OwenVoke\YTS;
+use OwenVoke\YTS\Movie;
+use OwenVoke\YTS\Torrent;
 
-use Exception;
-use PHPUnit\Framework\TestCase;
+it('can set the id for a movie', function () {
+    $movie = new Movie();
+    $movie->setId(1);
+    expect($movie->getId())->toEqual(1);
+});
 
-class MovieSetTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanGetId(): void
-    {
-        $movie = new Movie();
-        $movie->setId(1);
-        $this->assertEquals(1, $movie->getId());
-    }
+it('can set the torrents for a movie', function () {
+    $collection = collect(new Torrent());
+    $movie = new Movie();
+    $movie->setTorrents($collection);
+    expect($movie->getTorrents())->toEqual($collection);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetUrl(): void
-    {
-        $movie = new Movie();
-        $movie->setUrl('');
-        $this->assertEquals('', $movie->getUrl());
-    }
+it('can set the genres for a movie', function () {
+    $collection = collect(['Action']);
+    $movie = new Movie();
+    $movie->setGenres($collection);
+    expect($movie->getGenres())->toEqual($collection);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetImdbCode(): void
-    {
-        $movie = new Movie();
-        $movie->setImdbCode('');
-        $this->assertEquals('', $movie->getImdbCode());
-    }
+it('can set the URL for a movie', function () {
+    $movie = new Movie();
+    $movie->setUrl('');
+    expect($movie->getUrl())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTitle(): void
-    {
-        $movie = new Movie();
-        $movie->setTitle('');
-        $this->assertEquals('', $movie->getTitle());
-    }
+it('can set the IMDb code for a movie', function () {
+    $movie = new Movie();
+    $movie->setImdbCode('tt9114286');
+    expect($movie->getImdbCode())->toEqual('tt9114286');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTitleEnglish(): void
-    {
-        $movie = new Movie();
-        $movie->setTitleEnglish('');
-        $this->assertEquals('', $movie->getTitleEnglish());
-    }
+it('can set the title for a movie', function () {
+    $movie = new Movie();
+    $movie->setTitle('The Lord of the Rings: The Two Towers');
+    expect($movie->getTitle())->toEqual('The Lord of the Rings: The Two Towers');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTitleLong(): void
-    {
-        $movie = new Movie();
-        $movie->setTitleLong('');
-        $this->assertEquals('', $movie->getTitleLong());
-    }
+it('can set the English title for a movie', function () {
+    $movie = new Movie();
+    $movie->setTitleEnglish('The Lord of the Rings: The Two Towers');
+    expect($movie->getTitleEnglish())->toEqual('The Lord of the Rings: The Two Towers');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSlug(): void
-    {
-        $movie = new Movie();
-        $movie->setSlug('');
-        $this->assertEquals('', $movie->getSlug());
-    }
+it('can set the long title for a movie', function () {
+    $movie = new Movie();
+    $movie->setTitleLong('The Lord of the Rings: The Two Towers');
+    expect($movie->getTitleLong())->toEqual('The Lord of the Rings: The Two Towers');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetYear(): void
-    {
-        $movie = new Movie();
-        $movie->setYear(1998);
-        $this->assertEquals(1998, $movie->getYear());
-    }
+it('can set the slug for a movie', function () {
+    $movie = new Movie();
+    $movie->setSlug('lord-of-rings-two-towers');
+    expect($movie->getSlug())->toEqual('lord-of-rings-two-towers');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetRating(): void
-    {
-        $movie = new Movie();
-        $movie->setRating(1.0);
-        $this->assertEquals(1.0, $movie->getRating());
-    }
+it('can set the year for a movie', function () {
+    $movie = new Movie();
+    $movie->setYear(2002);
+    expect($movie->getYear())->toEqual(2002);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetRuntime(): void
-    {
-        $movie = new Movie();
-        $movie->setRuntime(666);
-        $this->assertEquals(666, $movie->getRuntime());
-    }
+it('can set the rating for a movie', function () {
+    $movie = new Movie();
+    $movie->setRating(100.0);
+    expect($movie->getRating())->toEqual(100.0);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetGenres(): void
-    {
-        $collection = collect([
-            'Action',
-        ]);
-        $movie = new Movie();
-        $movie->setGenres($collection);
-        $this->assertEquals($collection, $movie->getGenres());
-    }
+it('can set the runtime for a movie', function () {
+    $movie = new Movie();
+    $movie->setRuntime(2000);
+    expect($movie->getRuntime())->toEqual(2000);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDownloadCount(): void
-    {
-        $movie = new Movie();
-        $movie->setDownloadCount(666);
-        $this->assertEquals(666, $movie->getDownloadCount());
-    }
+it('can set the download count for a movie', function () {
+    $movie = new Movie();
+    $movie->setDownloadCount(1);
+    expect($movie->getDownloadCount())->toEqual(1);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetLikeCount(): void
-    {
-        $movie = new Movie();
-        $movie->setLikeCount(666);
-        $this->assertEquals(666, $movie->getLikeCount());
-    }
+it('can set the like count for a movie', function () {
+    $movie = new Movie();
+    $movie->setLikeCount(1);
+    expect($movie->getLikeCount())->toEqual(1);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSummary(): void
-    {
-        $movie = new Movie();
-        $movie->setSummary('');
-        $this->assertEquals('', $movie->getSummary());
-    }
+it('can set the summary for a movie', function () {
+    $movie = new Movie();
+    $movie->setSummary('');
+    expect($movie->getSummary())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDescriptionFull(): void
-    {
-        $movie = new Movie();
-        $movie->setDescriptionFull('');
-        $this->assertEquals('', $movie->getDescriptionFull());
-    }
+it('can set the full description for a movie', function () {
+    $movie = new Movie();
+    $movie->setDescriptionFull('');
+    expect($movie->getDescriptionFull())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSynopsis(): void
-    {
-        $movie = new Movie();
-        $movie->setSynopsis('');
-        $this->assertEquals('', $movie->getSynopsis());
-    }
+it('can set the synopsis for a movie', function () {
+    $movie = new Movie();
+    $movie->setSynopsis('');
+    expect($movie->getSynopsis())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetYtTrailerCode(): void
-    {
-        $movie = new Movie();
-        $movie->setYtTrailerCode('');
-        $this->assertEquals('', $movie->getYtTrailerCode());
-    }
+it('can set the YouTube trailer code for a movie', function () {
+    $movie = new Movie();
+    $movie->setYtTrailerCode('dQw4w9WgXcQ');
+    expect($movie->getYtTrailerCode())->toEqual('dQw4w9WgXcQ');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetLanguage(): void
-    {
-        $movie = new Movie();
-        $movie->setLanguage('');
-        $this->assertEquals('', $movie->getLanguage());
-    }
+it('can set the language for a movie', function () {
+    $movie = new Movie();
+    $movie->setLanguage('English');
+    expect($movie->getLanguage())->toEqual('English');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetMpaRating(): void
-    {
-        $movie = new Movie();
-        $movie->setMpaRating('');
-        $this->assertEquals('', $movie->getMpaRating());
-    }
+it('can set the MPA rating for a movie', function () {
+    $movie = new Movie();
+    $movie->setMpaRating('R');
+    expect($movie->getMpaRating())->toEqual('R');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetBackgroundImage(): void
-    {
-        $movie = new Movie();
-        $movie->setBackgroundImage('');
-        $this->assertEquals('', $movie->getBackgroundImage());
-    }
+it('can set the background image for a movie', function () {
+    $movie = new Movie();
+    $movie->setBackgroundImage('');
+    expect($movie->getBackgroundImage())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetBackgroundImageOriginal(): void
-    {
-        $movie = new Movie();
-        $movie->setBackgroundImageOriginal('');
-        $this->assertEquals('', $movie->getBackgroundImageOriginal());
-    }
+it('can set the original background image for a movie', function () {
+    $movie = new Movie();
+    $movie->setBackgroundImageOriginal('');
+    expect($movie->getBackgroundImageOriginal())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSmallCoverImage(): void
-    {
-        $movie = new Movie();
-        $movie->setSmallCoverImage('');
-        $this->assertEquals('', $movie->getSmallCoverImage());
-    }
+it('can set the small cover image for a movie', function () {
+    $movie = new Movie();
+    $movie->setSmallCoverImage('');
+    expect($movie->getSmallCoverImage())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetMediumCoverImage(): void
-    {
-        $movie = new Movie();
-        $movie->setMediumCoverImage('');
-        $this->assertEquals('', $movie->getMediumCoverImage());
-    }
+it('can set the medium cover image for a movie', function () {
+    $movie = new Movie();
+    $movie->setMediumCoverImage('');
+    expect($movie->getMediumCoverImage())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetLargeCoverImage(): void
-    {
-        $movie = new Movie();
-        $movie->setLargeCoverImage('');
-        $this->assertEquals('', $movie->getLargeCoverImage());
-    }
+it('can set the large cover image for a movie', function () {
+    $movie = new Movie();
+    $movie->setLargeCoverImage('');
+    expect($movie->getLargeCoverImage())->toEqual('');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetState(): void
-    {
-        $movie = new Movie();
-        $movie->setState('');
-        $this->assertEquals('', $movie->getState());
-    }
+it('can set the upload date for a movie', function () {
+    $movie = new Movie();
+    $movie->setDateUploaded('2021-01-01 01:01:01');
+    expect($movie->getDateUploaded())->toEqual('2021-01-01 01:01:01');
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTorrents(): void
-    {
-        $collection = collect([
-            new Torrent(),
-        ]);
-        $movie = new Movie();
-        $movie->setTorrents($collection);
-        $this->assertEquals($collection, $movie->getTorrents());
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploaded(): void
-    {
-        $movie = new Movie();
-        $movie->setDateUploaded('');
-        $this->assertEquals('', $movie->getDateUploaded());
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploadedUnix(): void
-    {
-        $time = time();
-        $movie = new Movie();
-        $movie->setDateUploadedUnix($time);
-        $this->assertEquals($time, $movie->getDateUploadedUnix());
-    }
-}
+it('can set the unix timestamp upload date for a movie', function () {
+    $movie = new Movie();
+    $movie->setDateUploadedUnix(1620636301);
+    expect($movie->getDateUploadedUnix())->toEqual(1620636301);
+});

@@ -1,319 +1,199 @@
 <?php
 
-namespace OwenVoke\YTS;
+use OwenVoke\YTS\Movies;
 
-use Exception;
-use PHPUnit\Framework\TestCase;
-
-class MovieGetTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanGetId(): void
-    {
-        $movie = Movies::details([
+it('can get id for movie', function () {
+    $movie = Movies::details([
             'movie_id' => 10,
         ]);
-        $this->assertIsInt($movie->getId());
-    }
+    expect($movie->getId())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetUrl(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getUrl());
-    }
+it('can get URL for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getUrl())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetImdbCode(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getImdbCode());
-    }
+it('can get IMDb code for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getImdbCode())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTitle(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getTitle());
-    }
+it('can get title for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getTitle())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTitleEnglish(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getTitleEnglish());
-    }
+it('can get English title for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getTitleEnglish())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTitleLong(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getTitleLong());
-    }
+it('can get long title for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getTitleLong())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSlug(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getSlug());
-    }
+it('can get slug for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getSlug())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetYear(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsInt($movie->getYear());
-    }
+it('can get year for movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getYear())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetRating(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsFloat($movie->getRating());
-    }
+it('can get rating for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getRating())->toBeFloat();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetRuntime(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsInt($movie->getRuntime());
-    }
+it('can get runtime for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getRuntime())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetGenres(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertTrue($movie->getGenres()->isNotEmpty());
-        $this->assertIsString($movie->getGenres()->first());
-    }
+it('can get genres for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getGenres())->not->toBeEmpty()->and($movie->getGenres()->first())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDownloadCount(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsInt($movie->getDownloadCount());
-    }
+it('can get download count for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getDownloadCount())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetLikeCount(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsInt($movie->getLikeCount());
-    }
+it('can get like count for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getLikeCount())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSummary(): void
-    {
-        $movie = Movies::list([
-            'movie_id' => 10,
-        ])->first();
-        $this->assertIsString($movie->getSummary());
-    }
+it('can get summary for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getSummary())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDescriptionFull(): void
-    {
-        $movie = Movies::list([
-            'movie_id' => 10,
-        ])->first();
-        $this->assertIsString($movie->getDescriptionFull());
-    }
+it('can get the full description for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getDescriptionFull())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSynopsis(): void
-    {
-        $movie = Movies::list([
-            'movie_id' => 10,
-        ])->first();
-        $this->assertIsString($movie->getSynopsis());
-    }
+it('can get the synopsis for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getSynopsis())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetYtTrailerCode(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getYtTrailerCode());
-    }
+it('can get the YouTube trailer code for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getYtTrailerCode())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetLanguage(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getLanguage());
-    }
+it('can get the language for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getLanguage())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetMpaRating(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getMpaRating());
-    }
+it('can get the MPA rating for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getMpaRating())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetBackgroundImage(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getBackgroundImage());
-    }
+it('can get the background image for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getBackgroundImage())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetBackgroundImageOriginal(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getBackgroundImageOriginal());
-    }
+it('can get the original background image for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getBackgroundImageOriginal())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSmallCoverImage(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getSmallCoverImage());
-    }
+it('can get the small cover image for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getSmallCoverImage())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetMediumCoverImage(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getMediumCoverImage());
-    }
+it('can get the medium cover image for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getMediumCoverImage())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetLargeCoverImage(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getLargeCoverImage());
-    }
+it('can get the large cover image for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getLargeCoverImage())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetState(): void
-    {
-        $movie = Movies::list([
-            'movie_id' => 10,
-        ])->first();
-        $this->assertIsString($movie->getState());
-    }
+it('can get the state for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getState())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetTorrents(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertTrue($movie->getTorrents()->isNotEmpty());
-        $this->assertIsString($movie->getTorrents()->first()->getUrl());
-    }
+it('can get the torrents for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getTorrents())->toBeArray()->not->toBeEmpty()->and($movie->getTorrents()->first()->getUrl())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploaded(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsString($movie->getDateUploaded());
-    }
+it('can get the upload date for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getDateUploaded())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploadedUnix(): void
-    {
-        $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
-        $this->assertIsInt($movie->getDateUploadedUnix());
-    }
-}
+it('can get the Unix upload timestamp for a movie', function () {
+    $movie = Movies::details([
+        'movie_id' => 10,
+    ]);
+    expect($movie->getDateUploadedUnix())->toBeInt();
+});

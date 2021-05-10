@@ -1,79 +1,39 @@
 <?php
 
-namespace OwenVoke\YTS;
+use OwenVoke\YTS\Movies;
 
-use Exception;
-use PHPUnit\Framework\TestCase;
+it('can retrieve movies', function (): void {
+    $movies = Movies::list();
+    expect($movies)->toBeArray()->not->toBeEmpty()
+        ->and($movies->first()->getId())->toBeGreaterThan(0);
+});
 
-class MoviesListTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovies(): void
-    {
-        $movies = Movies::list();
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
+it('can retrieve movies by quality filter', function (): void {
+    $movies = Movies::list(['quality' => Movies::QUALITY_720]);
+    expect($movies)->toBeArray()->not->toBeEmpty()
+        ->and($movies->first()->getId())->toBeGreaterThan(0);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMoviesByQuality(): void
-    {
-        $movies = Movies::list([
-            'quality' => Movies::QUALITY_720,
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
+it('can retrieve movies by query', function (): void {
+    $movies = Movies::list(['query_term' => 'Lord of the Rings']);
+    expect($movies)->toBeArray()->not->toBeEmpty()
+        ->and($movies->first()->getId())->toBeGreaterThan(0);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMoviesByQuery(): void
-    {
-        $movies = Movies::list([
-            'query_term' => 'Lord of the Rings',
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
+it('can retrieve movies by page', function (): void {
+    $movies = Movies::list(['page' => 2]);
+    expect($movies)->toBeArray()->not->toBeEmpty()
+        ->and($movies->first()->getId())->toBeGreaterThan(0);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMoviesByPage(): void
-    {
-        $movies = Movies::list([
-            'page' => 2,
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
+it('can retrieve movies by minimum rating', function (): void {
+    $movies = Movies::list(['minimum_rating' => 5]);
+    expect($movies)->toBeArray()->not->toBeEmpty()
+        ->and($movies->first()->getId())->toBeGreaterThan(0);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMoviesByMinimumRating(): void
-    {
-        $movies = Movies::list([
-            'minimum_rating' => 5,
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMoviesByGenre(): void
-    {
-        $movies = Movies::list([
-            'genre' => 'Action',
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
-}
+it('can retrieve movies by genre', function (): void {
+    $movies = Movies::list(['genre' => 'Action']);
+    expect($movies)->toBeArray()->not->toBeEmpty()
+        ->and($movies->first()->getId())->toBeGreaterThan(0);
+});

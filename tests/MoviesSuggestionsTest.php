@@ -1,55 +1,15 @@
 <?php
 
-namespace OwenVoke\YTS;
-
-use Exception;
+use OwenVoke\YTS\Movies;
 use OwenVoke\YTS\Exceptions\NoDataFoundException;
-use PHPUnit\Framework\TestCase;
 
-class MoviesSuggestionsTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovie(): void
-    {
-        $movies = Movies::suggestions([
-            'movie_id' => 10,
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
+it('can retrieve a movies suggestions', function () {
+    $movies = Movies::suggestions([
+        'movie_id' => 10,
+    ]);
+    expect($movies)->toBeArray()->not->toBeEmpty()->and($movies->first()->getId())->toBeGreaterThan(0);
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovieWithImages(): void
-    {
-        $movies = Movies::suggestions([
-            'movie_id'    => 10,
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testCanRetrieveMovieWithCast(): void
-    {
-        $movies = Movies::suggestions([
-            'movie_id'  => 10,
-        ]);
-        $this->assertTrue($movies->isNotEmpty());
-        $this->assertTrue($movies->first()->getId() > 0);
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testThrowsErrorOnInvalidData(): void
-    {
-        $this->expectException(NoDataFoundException::class);
-        Movies::suggestions();
-    }
-}
+it('throws an error on invalid data', function () {
+    Movies::suggestions();
+})->throws(NoDataFoundException::class);

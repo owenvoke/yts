@@ -1,108 +1,66 @@
 <?php
 
-namespace OwenVoke\YTS;
+use OwenVoke\YTS\Movies;
 
-use Exception;
-use PHPUnit\Framework\TestCase;
+it('can get the URL for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getUrl())->toBeString();
+});
 
-class TorrentGetTest extends TestCase
-{
-    /**
-     * @throws Exception
-     */
-    public function testCanGetUrl(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsString($torrent->getUrl());
-    }
+it('can get the hash for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getHash())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetHash(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsString($torrent->getHash());
-    }
+it('can get the quality for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getQuality())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetQuality(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsString($torrent->getQuality());
-    }
+it('can get the seeds for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getSeeds())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSeeds(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsInt($torrent->getSeeds());
-    }
+it('can get the peers for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getPeers())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetPeers(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsInt($torrent->getPeers());
-    }
+it('can get the size of a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getSize())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSize(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsString($torrent->getSize());
-    }
+it('can get the size of a torrent in bytes', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getSizeBytes())->toBeInt();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetSizeBytes(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsInt($torrent->getSizeBytes());
-    }
+it('can get the upload date for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getDateUploaded())->toBeString();
+});
 
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploaded(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsString($torrent->getDateUploaded());
-    }
-
-    /**
-     * @throws Exception
-     */
-    public function testCanGetDateUploadedUnix(): void
-    {
-        $torrent = Movies::details([
-            'movie_id' => 10,
-        ])->getTorrents()->first();
-        $this->assertIsInt($torrent->getDateUploadedUnix());
-    }
-}
+it('can get the unix timestamp upload date for a torrent', function () {
+    $torrent = Movies::details([
+        'movie_id' => 10,
+    ])->getTorrents()->first();
+    expect($torrent->getDateUploadedUnix())->toBeInt();
+});

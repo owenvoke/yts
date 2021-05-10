@@ -4,24 +4,33 @@
     "description": "A full wrapper for the YTS API.",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
-        "guzzlehttp/guzzle": "^6.3",
+        "php": "^7.3",
+        "guzzlehttp/guzzle": "^6.5",
         "tightenco/collect": "^5.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5"
+        "pestphp/pest": "^1.1",
+        "symfony/var-dumper": "^5.1"
     },
     "autoload": {
         "psr-4": {
-            "OwenVoke\\YTS\\": "src"
+            "OwenVoke\\YTS\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OwenVoke\\YTS\\": "tests"
+            "OwenVoke\\YTS\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "test": "phpunit"
-    }
+        "test:unit": "phpunit",
+        "test": [
+            "@test:unit"
+        ]
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
