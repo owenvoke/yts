@@ -1,6 +1,7 @@
 <?php
 
 use OwenVoke\YTS\Movies;
+use Illuminate\Support\Collection;
 
 it('can get id for movie', function () {
     $movie = Movies::details([
@@ -76,7 +77,7 @@ it('can get genres for a movie', function () {
     $movie = Movies::details([
         'movie_id' => 10,
     ]);
-    expect($movie->getGenres())->not->toBeEmpty()->and($movie->getGenres()->first())->toBeString();
+    expect($movie->getGenres())->toBeObject(Collection::class)->not->toBeEmpty()->and($movie->getGenres()->first())->toBeString();
 });
 
 it('can get download count for a movie', function () {
@@ -181,7 +182,7 @@ it('can get the torrents for a movie', function () {
     $movie = Movies::details([
         'movie_id' => 10,
     ]);
-    expect($movie->getTorrents())->toBeArray()->not->toBeEmpty()->and($movie->getTorrents()->first()->getUrl())->toBeString();
+    expect($movie->getTorrents())->toBeObject(Collection::class)->not->toBeEmpty()->and($movie->getTorrents()->first()->getUrl())->toBeString();
 });
 
 it('can get the upload date for a movie', function () {

@@ -213,7 +213,7 @@ class Movie
         $this->like_count = $like_count;
     }
 
-    public function getSummary(): string
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
@@ -233,7 +233,7 @@ class Movie
         $this->description_full = $description_full;
     }
 
-    public function getSynopsis(): string
+    public function getSynopsis(): ?string
     {
         return $this->synopsis;
     }
@@ -323,7 +323,7 @@ class Movie
         $this->large_cover_image = $large_cover_image;
     }
 
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->state;
     }
