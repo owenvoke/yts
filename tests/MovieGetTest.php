@@ -77,7 +77,8 @@ it('can get genres for a movie', function () {
     $movie = Movies::details([
         'movie_id' => 10,
     ]);
-    expect($movie->getGenres())->toBeObject(Collection::class)->not->toBeEmpty()->and($movie->getGenres()->first())->toBeString();
+    expect($movie->getGenres())->toBeObject(Collection::class)->not->toBeEmpty()
+        ->and($movie->getGenres()->first())->toBeString();
 });
 
 it('can get download count for a movie', function () {
@@ -98,7 +99,7 @@ it('can get summary for a movie', function () {
     $movie = Movies::details([
         'movie_id' => 10,
     ]);
-    expect($movie->getSummary())->toBeString();
+    expect($movie->getSummary())->toBeNull();
 });
 
 it('can get the full description for a movie', function () {
@@ -112,7 +113,7 @@ it('can get the synopsis for a movie', function () {
     $movie = Movies::details([
         'movie_id' => 10,
     ]);
-    expect($movie->getSynopsis())->toBeString();
+    expect($movie->getSynopsis())->toBeNull();
 });
 
 it('can get the YouTube trailer code for a movie', function () {
@@ -175,7 +176,7 @@ it('can get the state for a movie', function () {
     $movie = Movies::details([
         'movie_id' => 10,
     ]);
-    expect($movie->getState())->toBeString();
+    expect($movie->getState())->toBeNull();
 });
 
 it('can get the torrents for a movie', function () {
