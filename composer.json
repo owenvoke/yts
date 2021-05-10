@@ -4,7 +4,7 @@
     "description": "A full wrapper for the YTS API.",
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "guzzlehttp/guzzle": "^6.5",
         "illuminate/collections": "^8.40"
     },
