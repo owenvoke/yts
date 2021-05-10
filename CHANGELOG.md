@@ -1,10 +1,21 @@
 # Changelog
 
-All notable changes to `yts` will be documented in this file.
+All notable changes to this project will be documented in this file.
 
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com) principles.
+The format is based on [Keep a Changelog](https://keepachangelog.com), and this project adheres to [Semantic Versioning](https://semver.org).
 
-## [Unreleased]
+## Unreleased
+
+## [v2.0.0] - 2021-05-10
+
+### Changed
+- Update namespace to `OwenVoke` and package name to `owenvoke/yts` ([62708e9](https://github.com/owenvoke/yts/commit/62708e9870a0e4ef5716bac337d41fc81e4f390b))
+- Update to use GitHub Actions ([#4](https://github.com/owenvoke/yts/pull/4))
+- Update to use Pest for testing ([#5](https://github.com/owenvoke/yts/pull/5))
+- Update to require a minimum of PHP 7.3 ([#5](https://github.com/owenvoke/yts/pull/5))
+- Update to use `illuminate/collections` instead of `tightenco/collect` ([6a9fb0d](https://github.com/owenvoke/yts/commit/6a9fb0d9f9f3d4ac1d3a264b4ac876d78118d7d9))
+- Add support for PHP 8 ([a681cf1](https://github.com/owenvoke/yts/commit/a681cf180b9fffe3a2030720bb749cd881c9c731))
+- Update to test against PHPStan ([#6](https://github.com/owenvoke/yts/pull/6))
 
 ## [v1.2.0] - 2019-03-08
 
