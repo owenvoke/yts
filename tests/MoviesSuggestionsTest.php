@@ -1,7 +1,7 @@
 <?php
 
-use OwenVoke\YTS\Movies;
 use OwenVoke\YTS\Exceptions\NoDataFoundException;
+use OwenVoke\YTS\Movies;
 
 it('can retrieve a movies suggestions', function () {
     $movies = Movies::suggestions([

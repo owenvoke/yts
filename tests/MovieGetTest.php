@@ -4,8 +4,8 @@ use OwenVoke\YTS\Movies;
 
 it('can get id for movie', function () {
     $movie = Movies::details([
-            'movie_id' => 10,
-        ]);
+        'movie_id' => 10,
+    ]);
     expect($movie->getId())->toBeInt();
 });
 
