@@ -6,7 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 
 ## Unreleased
 
-## [v2.0.0] - 2021-05-10
+## [v2.0.1] - 2021-05-10
+
+### Added
+- Add support for Guzzle 7.2 and later ([365f127](https://github.com/owenvoke/yts/commit/365f1277e073ae24b984f24e53eb151f1ae7a2b5))
+
+## v2.0.0 - 2021-05-10
 
 ### Changed
 - Update namespace to `OwenVoke` and package name to `owenvoke/yts` ([62708e9](https://github.com/owenvoke/yts/commit/62708e9870a0e4ef5716bac337d41fc81e4f390b))
@@ -17,7 +22,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 - Add support for PHP 8 ([a681cf1](https://github.com/owenvoke/yts/commit/a681cf180b9fffe3a2030720bb749cd881c9c731))
 - Update to test against PHPStan ([#6](https://github.com/owenvoke/yts/pull/6))
 
-## [v1.2.0] - 2019-03-08
+## v1.2.0 - 2019-03-08
 
 ### Added
 - Add support for PHPUnit 8 ([#1](https://github.com/owenvoke/yts/pull/1))
@@ -26,17 +31,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 ### Changed
 - Update the dot files in the root ([d34f2eb8](https://github.com/owenvoke/yts/commit/d34f2eb8e81d09a30325a8327459c053397c6d5f))
 
-## [v1.1.0] - 2018-01-15
+## v1.1.0 - 2018-01-15
 
 ### Fixed
 - Updated the domain TLD to `.am` ([Blog post](https://yts.am/blog/yts-am-new-domain-name-for-yts-yify-website))
 
-## [v1.0.2] - 2017-12-06
+## v1.0.2 - 2017-12-06
 
 ### Fixed
 - Corrected legal name in license
 
-## [v1.0.1] - 2017-11-20
+## v1.0.1 - 2017-11-20
 
 ### Fixed
 - Corrected the format of the license file
@@ -48,8 +53,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), and this 
 - `Movies::details()` method for accessing a single `Movie` instance.
 - `Movies::suggestions()` method for accessing a collection of suggested movie instances.
 
-[v2.0.0]: https://github.com/owenvoke/yts/compare/v1.2.0...v2.0.0
-[v1.2.0]: https://github.com/owenvoke/yts/compare/v1.1.0...v1.2.0
-[v1.1.0]: https://github.com/owenvoke/yts/compare/v1.0.2...v1.1.0
-[v1.0.2]: https://github.com/owenvoke/yts/compare/v1.0.1...v1.0.2
-[v1.0.1]: https://github.com/owenvoke/yts/compare/v1.0.0...v1.0.1
+[v2.0.1]: https://github.com/owenvoke/yts/compare/v2.0.0...v2.0.1
