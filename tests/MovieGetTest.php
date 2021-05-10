@@ -1,7 +1,7 @@
 <?php
 
-use OwenVoke\YTS\Movies;
 use Illuminate\Support\Collection;
+use OwenVoke\YTS\Movies;
 
 it('can get id for movie', function () {
     $movie = Movies::details([
