@@ -9,7 +9,7 @@ class YTS
     /** The current version of the API. */
     public const API_VERSION = 2;
     /** The base uri of the API. */
-    public const BASE_URI = 'https://yts.am/api/v'.self::API_VERSION.'/';
+    public const BASE_URI = 'https://yts.mx/api/v'.self::API_VERSION.'/';
 
     /** @var Client */
     private static $client;
